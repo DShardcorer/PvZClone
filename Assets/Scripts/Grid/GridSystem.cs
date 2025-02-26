@@ -91,4 +91,10 @@ public class GridSystem
     {
         return gridArray[gridPosition.x, gridPosition.y];
     }
+
+    public Vector2 GetWorldPositionFromClosestGridPosition(Vector2 worldPosition)
+    {
+        GridPosition gridPosition = GetGridPosition(worldPosition);
+        return GetWorldPosition(gridPosition);
+    }
 }

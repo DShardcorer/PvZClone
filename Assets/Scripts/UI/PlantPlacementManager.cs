@@ -3,45 +3,43 @@ using UnityEngine.EventSystems;
 
 public class PlantPlacementManager : MonoBehaviour
 {
+    [SerializeField] private Canvas canvas;
     private GameObject currentPlantPreview;
     private bool isPlacingPlant = false;
+    private PlantSO currentPlantSO;
 
     public void SetCurrentPlantPreview(GameObject plantPreview)
     {
         currentPlantPreview = plantPreview;
+    }
+    public void SetCurrentPlantSO(PlantSO plantSO)
+    {
+        currentPlantSO = plantSO;
     }
 
     void Update()
     {
         if (isPlacingPlant && currentPlantPreview != null)
         {
-            // Update preview to follow the mouse cursor.
-            Vector3 mousePos = Input.mousePosition;
-            // For 2D, we typically want z=0 in world space.
-            Vector3 worldPos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, Camera.main.nearClipPlane));
-            worldPos.z = 0;
-            currentPlantPreview.transform.position = worldPos;
+            currentPlantPreview.transform.position = MouseWorld.Instance.GetMouseWorldPosition()/canvas.scaleFactor;
 
-            // When the player clicks (and not on UI), place the plant.
             if (Input.GetMouseButtonDown(0) && !IsPointerOverUI())
             {
-                PlacePlant(worldPos);
+                PlacePlant(currentPlantPreview.transform.position);
             }
         }
     }
 
     // Called by the PlantCard when a card is clicked.
-    public void StartPlantPlacement(GameObject plantPrefab)
+    public void StartPlantPlacement(PlantSO plantSO)
     {
-        // If already placing a plant, cancel the current placement.
         if (isPlacingPlant)
         {
             CancelPlantPlacement();
         }
-        
-        // Instantiate a preview of the plant.
-        // Optionally, you could make a “ghost” version (semi-transparent, unresponsive).
-        currentPlantPreview = Instantiate(plantPrefab);
+        currentPlantPreview = Instantiate(plantSO.plantPreviewPrefab, MouseWorld.Instance.GetMouseWorldPosition(), Quaternion.identity);
+        SetCurrentPlantPreview(currentPlantPreview);
+        SetCurrentPlantSO(plantSO);
         isPlacingPlant = true;
     }
 
@@ -56,17 +54,20 @@ public class PlantPlacementManager : MonoBehaviour
     }
 
     // Finalizes the placement of the plant.
-    private void PlacePlant(Vector3 position)
+    private void PlacePlant(Vector2 position)
     {
-        // Here you might check for valid placement (grid cell, resource availability, etc.)
-        // For now, we simply finalize placement.
-        isPlacingPlant = false;
-        // Optionally, if the preview is a temporary ghost, you might destroy it and instantiate a permanent plant.
-        // For this example, we'll assume the preview is now the placed plant:
-        // (If you need to initialize it further, do it here.)
+        if (!GridManager.Instance.IsWithinBounds(GridManager.Instance.GetGridPosition(position)) 
+        || GridManager.Instance.IsCellOccupiedByPlant(GridManager.Instance.GetGridPosition(position))
+        || !SunManager.Instance.CanAfford(currentPlantSO.sunCost))
+        {
+            CancelPlantPlacement();
+            return;
+        }
+        SunManager.Instance.SpendSun(currentPlantSO.sunCost);
+        PlantFactory.Instance.GetProduct(currentPlantSO.plantName, MouseWorld.Instance.GetMouseGridPosition());
+        CancelPlantPlacement();
     }
 
-    // Utility method to check if the pointer is over a UI element.
     private bool IsPointerOverUI()
     {
         return EventSystem.current.IsPointerOverGameObject();

@@ -53,3 +53,6 @@ TagManager:
   - name: Projectiles
     uniqueID: 185959767
     locked: 0
+  - name: Sun
+    uniqueID: 1473498125
+    locked: 0

@@ -7,7 +7,7 @@ public class PlantSO : ScriptableObject
 {
     public string plantName;
 
-    public int cost;
+    public int sunCost;
     public int health;
     public float actionCooldownTimer;
 

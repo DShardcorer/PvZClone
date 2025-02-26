@@ -35,20 +35,19 @@ public class PlantFactory : MonoBehaviour
         }
     }
 
-    public IProduct GetProduct(string plantName, Vector2 position)
-    {
-        GameObject plantGameObject = Instantiate(plantPrefabDict[plantName]);
-        plantGameObject.transform.position = position;
-        Plant plant = plantGameObject.GetComponent<Plant>();
-        plant.Initialize();
-        return plant;
-    }
+
 
     public IProduct GetProduct(string plantName, GridPosition gridPosition)
     {
         Vector2 worldPosition = GridManager.Instance.GetWorldPosition(gridPosition);
-        return GetProduct(plantName, worldPosition);
+        GameObject plantGameObject = Instantiate(plantPrefabDict[plantName], worldPosition, Quaternion.identity);
+        Plant plant = plantGameObject.GetComponent<Plant>();
+        plant.Initialize();
+        return plantGameObject.GetComponent<IProduct>();
+
     }
+
+
     
 
 }

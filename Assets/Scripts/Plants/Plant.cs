@@ -5,6 +5,7 @@ using UnityEngine;
 
 public abstract class Plant : MonoBehaviour, IProduct
 {
+    [SerializeField] protected PlantSO plantSO;
     private GridPosition gridPosition;
     protected int health;
 
@@ -12,7 +13,8 @@ public abstract class Plant : MonoBehaviour, IProduct
     protected float actionCooldownTimer = 3f;
     protected float performingActionTimer = 1f;
 
-    public enum State{
+    public enum State
+    {
         Idle,
         PerformingAction
     }
@@ -22,6 +24,9 @@ public abstract class Plant : MonoBehaviour, IProduct
     public event EventHandler ActionCompleted;
     protected virtual void Awake()
     {
+        health = plantSO.health;
+        actionCooldownTimer = plantSO.actionCooldownTimer;
+        performingActionTimer = plantSO.performActionTimer;
         SetTimer(actionCooldownTimer);
     }
 

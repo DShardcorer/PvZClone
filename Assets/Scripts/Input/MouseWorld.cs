@@ -4,21 +4,27 @@ using UnityEngine;
 
 public class MouseWorld : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static MouseWorld Instance { get; private set; }
+
+    private void Awake()
     {
-        
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public Vector2 GetMouseWorldPosition()
     {
-        if(Input.GetMouseButtonDown(0))
-        {
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            //Print grid position of mouse
-            GridPosition gridPosition = GridManager.Instance.GetGridPosition(mousePosition);
-            Debug.Log(gridPosition);
-        }
+        return Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    }
+
+    public GridPosition GetMouseGridPosition()
+    {
+        return GridManager.Instance.GetGridPosition(GetMouseWorldPosition());
     }
 }

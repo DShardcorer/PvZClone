@@ -8,12 +8,9 @@ public class GridManager : MonoBehaviour
 
     public static GridManager Instance { get; private set; }
 
-
-
-
     private void Awake()
     {
-        if(Instance == null)
+        if (Instance == null)
         {
             Instance = this;
         }
@@ -22,7 +19,7 @@ public class GridManager : MonoBehaviour
             Destroy(gameObject);
         }
         gridSystem = new GridSystem(9, 5, 1.6f, 2, new Vector2((float)-8.1, (float)-4.5));
-        
+
         gridSystem.DrawDebugGrid();
     }
 
@@ -53,7 +50,8 @@ public class GridManager : MonoBehaviour
     {
         gridSystem.GetGridObject(gridPosition).SetPlant(null);
     }
-    
-
-
+    public Vector2 GetWorldPositionFromClosestGridPosition(Vector2 worldPosition)
+    {
+        return gridSystem.GetWorldPositionFromClosestGridPosition(worldPosition);
+    }
 }
