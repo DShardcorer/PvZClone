@@ -49,8 +49,12 @@ public class GridObject
         this.plant = plant;
     }
 
-    
+    public override string ToString()
+    {
+        return gridPosition.ToString();
+    }
 
-    
+
+
 
 }

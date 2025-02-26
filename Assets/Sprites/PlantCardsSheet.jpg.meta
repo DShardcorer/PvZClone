@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,1141 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: PlantCardsSheet_0
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 940
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 581e02ebf87bd3c4e9057636fd1829dd
+      internalID: 1349416727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_1
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 940
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a20620d622e78046b81177fdcf5d9e5
+      internalID: 250391937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_2
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 940
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 469ff4b240d513b41963a15b4ac0f8ab
+      internalID: 891507561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_3
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 940
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc8bb6539bca939458cd3877292a66bd
+      internalID: -1942740349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_4
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 940
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c35fe7e916b562141bdbe2c54f857aa1
+      internalID: 2046173356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_5
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 940
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec80532304d925347abe221f8209b2da
+      internalID: -413504275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_6
+      rect:
+        serializedVersion: 2
+        x: 859
+        y: 940
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e4970286eedaa44ba489b5cfd104149
+      internalID: 1990989944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_7
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 940
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd26ecd877705a246b923127fa983a8f
+      internalID: -261993783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_8
+      rect:
+        serializedVersion: 2
+        x: 1137
+        y: 940
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85dc07005770c204ab7347b983634f6b
+      internalID: -307268913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_9
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 754
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d4c4c4ae5466d244aa64a65ef76f72f
+      internalID: -2022564420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_10
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 754
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7293c92081cdafe48bd5f86ae6d7e7cd
+      internalID: 1039808989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_11
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 754
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 431cf62f33e01d84c90eb7339d0f40b7
+      internalID: -1399171054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_12
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 754
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a067cc3a8e174c243a653c77eb09e71e
+      internalID: 1991510515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_13
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 754
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8839d5c6b8a789a4cbf7601a84f493de
+      internalID: 539922743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_14
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 754
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee5dc74b8f7346f448d36b14ccdd8598
+      internalID: 290908326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_15
+      rect:
+        serializedVersion: 2
+        x: 859
+        y: 754
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d0272adfc78c9a4fba1837d7fdaca50
+      internalID: -483496437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_16
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 754
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 665af50a73d51cd408c73bd34420f19c
+      internalID: -240888507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_17
+      rect:
+        serializedVersion: 2
+        x: 1137
+        y: 754
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a990dc8e56f27442baa8e7db65a9099
+      internalID: 1928865126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_18
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 568
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02e5e23b58787934386758d5ed26f26c
+      internalID: 1203803044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_19
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 568
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52020bc44e807d84e92f013789be04df
+      internalID: 2090005835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_20
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 568
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17caf0a0ee73f894a9cb219c75c3d94d
+      internalID: -1167281378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_21
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 568
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cee126c68203c16418e725908bd16238
+      internalID: -1310157383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_22
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 568
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef6f621f9bedab3418761a68c7de7e7c
+      internalID: 2086196694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_23
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 568
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0150e21ee84b054e973a5620754c771
+      internalID: 161999668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_24
+      rect:
+        serializedVersion: 2
+        x: 859
+        y: 568
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3918bc90537dd58418a2519731d01afc
+      internalID: 1654405900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_25
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 568
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1560f0ccffbdb942bed7ff55ca203ea
+      internalID: 887214744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_26
+      rect:
+        serializedVersion: 2
+        x: 1137
+        y: 568
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1f59aac017f6214cbeca67c681f9510
+      internalID: 792834344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_27
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 382
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47787077baee89147b0608549aba9420
+      internalID: 1358260493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_28
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 382
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50cab0a080911ca499dd5a4a3b60c492
+      internalID: -759705969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_29
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 382
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f900abb047b24e4fbbc9c3265eb20da
+      internalID: 246366671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_30
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 382
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e4ae28aed76fbe41a731c42d3a3bfa6
+      internalID: -1385991494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_31
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 382
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c510a5348bb1c64489641960ddddca13
+      internalID: -674026703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_32
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 382
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c8b09132598b1442b70f3757cb5e81b
+      internalID: 533457983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_33
+      rect:
+        serializedVersion: 2
+        x: 859
+        y: 382
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0acb5cfbe4ddfa4b9a18bc66a016cf2
+      internalID: -1131808559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_34
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 382
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09e7d94320e3b0c49b6e3d7fed838b60
+      internalID: -1264721111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_35
+      rect:
+        serializedVersion: 2
+        x: 1137
+        y: 382
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7efd9892c7d6ba54f87f7d255a4981be
+      internalID: -233737695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_36
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 196
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ecfe2acd3d113540a3c03c548e5e0b0
+      internalID: -758343860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_37
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 196
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7bd7bba7db178d46872cb5703f78128
+      internalID: 1419992640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_38
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 196
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebd5dd37e0188954bbc9bd48a2e2b27f
+      internalID: 762250045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_39
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 196
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78913441e229d3244bbece02b1add90a
+      internalID: 375165338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_40
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 196
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59275bdfb6468ff46991cf1caa36dc9d
+      internalID: -589509890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_41
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 196
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c76e71129721b334aba460531f024aab
+      internalID: 263895934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_42
+      rect:
+        serializedVersion: 2
+        x: 859
+        y: 196
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e862442e2bccd648b91dc550ef2b92d
+      internalID: -131778775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_43
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 196
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdcc77249d985b149b794ab716e35952
+      internalID: 414908458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_44
+      rect:
+        serializedVersion: 2
+        x: 1137
+        y: 196
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c414aa4f4cd8fa48a79aac91d0fbeb1
+      internalID: 1681870211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_45
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 10
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aea3c6a752e951e40a38a5a2ba792648
+      internalID: 1399296980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_46
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 10
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33a61f595f60f464ab3e1a1000ccaad7
+      internalID: -1219582016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_47
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 10
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12f26f15f2f0ad544876aa11d802b6fd
+      internalID: 699037835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_48
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 10
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff46c121ac4382649a3767f6c68973b6
+      internalID: 1975190448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_49
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 10
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e2dc7cda046e314ca3d34c34cbe2dc6
+      internalID: -455653574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_50
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 10
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ac2b2c2c6486f344a1ac559ba4e635a
+      internalID: -1401761176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_51
+      rect:
+        serializedVersion: 2
+        x: 859
+        y: 10
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 582e25f81e69f644aa99714c96db9838
+      internalID: -648385429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_52
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 10
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f5f47a9204f4de4985433016d67f422
+      internalID: 1645629809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantCardsSheet_53
+      rect:
+        serializedVersion: 2
+        x: 1137
+        y: 10
+        width: 128
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c90225ae0bc27234aa1d7ce02d23a864
+      internalID: -2022427236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +1253,61 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      PlantCardsSheet_0: 1349416727
+      PlantCardsSheet_1: 250391937
+      PlantCardsSheet_10: 1039808989
+      PlantCardsSheet_11: -1399171054
+      PlantCardsSheet_12: 1991510515
+      PlantCardsSheet_13: 539922743
+      PlantCardsSheet_14: 290908326
+      PlantCardsSheet_15: -483496437
+      PlantCardsSheet_16: -240888507
+      PlantCardsSheet_17: 1928865126
+      PlantCardsSheet_18: 1203803044
+      PlantCardsSheet_19: 2090005835
+      PlantCardsSheet_2: 891507561
+      PlantCardsSheet_20: -1167281378
+      PlantCardsSheet_21: -1310157383
+      PlantCardsSheet_22: 2086196694
+      PlantCardsSheet_23: 161999668
+      PlantCardsSheet_24: 1654405900
+      PlantCardsSheet_25: 887214744
+      PlantCardsSheet_26: 792834344
+      PlantCardsSheet_27: 1358260493
+      PlantCardsSheet_28: -759705969
+      PlantCardsSheet_29: 246366671
+      PlantCardsSheet_3: -1942740349
+      PlantCardsSheet_30: -1385991494
+      PlantCardsSheet_31: -674026703
+      PlantCardsSheet_32: 533457983
+      PlantCardsSheet_33: -1131808559
+      PlantCardsSheet_34: -1264721111
+      PlantCardsSheet_35: -233737695
+      PlantCardsSheet_36: -758343860
+      PlantCardsSheet_37: 1419992640
+      PlantCardsSheet_38: 762250045
+      PlantCardsSheet_39: 375165338
+      PlantCardsSheet_4: 2046173356
+      PlantCardsSheet_40: -589509890
+      PlantCardsSheet_41: 263895934
+      PlantCardsSheet_42: -131778775
+      PlantCardsSheet_43: 414908458
+      PlantCardsSheet_44: 1681870211
+      PlantCardsSheet_45: 1399296980
+      PlantCardsSheet_46: -1219582016
+      PlantCardsSheet_47: 699037835
+      PlantCardsSheet_48: 1975190448
+      PlantCardsSheet_49: -455653574
+      PlantCardsSheet_5: -413504275
+      PlantCardsSheet_50: -1401761176
+      PlantCardsSheet_51: -648385429
+      PlantCardsSheet_52: 1645629809
+      PlantCardsSheet_53: -2022427236
+      PlantCardsSheet_6: 1990989944
+      PlantCardsSheet_7: -261993783
+      PlantCardsSheet_8: -307268913
+      PlantCardsSheet_9: -2022564420
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

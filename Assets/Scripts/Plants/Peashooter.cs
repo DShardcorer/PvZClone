@@ -7,14 +7,21 @@ public class Peashooter : Plant, IShootable
     [SerializeField] private GameObject peaPrefab;
     [SerializeField] private Transform shootPoint;
 
-    [SerializeField] private PeaProjectilePool peaProjectilePool;
+    private ProjectileFactory projectileFactory;
+    [SerializeField] private PlantSO shootablePlantSO;
+
 
     protected override void Awake()
     {
-        health = 100;
-        actionCooldownTimer = 1f;
-        performingActionTimer = 1f;
+        health = shootablePlantSO.health;
+        actionCooldownTimer = shootablePlantSO.actionCooldownTimer;
+        performingActionTimer = shootablePlantSO.performActionTimer;
+        
         base.Awake();
+    }
+    void Start()
+    {
+        projectileFactory = ProjectileFactory.Instance;
     }
 
 
@@ -23,18 +30,9 @@ public class Peashooter : Plant, IShootable
         Shoot();
     }
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     public void Shoot()
     {
-        GameObject peaProjectile = peaProjectilePool.GetPeaProjectile();
-        peaProjectile.transform.position = shootPoint.position;
-        peaProjectile.SetActive(true);
+        projectileFactory.GetProduct(shootPoint.position);
     }
 
 }

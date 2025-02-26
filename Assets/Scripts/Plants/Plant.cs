@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Plant : MonoBehaviour
+public abstract class Plant : MonoBehaviour, IProduct
 {
     private GridPosition gridPosition;
     protected int health;
@@ -73,5 +73,14 @@ public abstract class Plant : MonoBehaviour
         return gridPosition;
     }
 
+    public void Initialize()
+    {
+        SetGridPosition(GridManager.Instance.GetGridPosition(transform.position));
+        GridManager.Instance.SetPlantAtGridPosition(gridPosition, this);
+    }
 
+    private void OnDestroy()
+    {
+        GridManager.Instance.RemovePlantAtGridPosition(gridPosition);
+    }
 }

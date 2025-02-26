@@ -18,6 +18,10 @@ public class GridPosition: IEquatable<GridPosition>
     {
         return x == other.x && y == other.y;
     }
+    public override string ToString()
+    {
+        return x + "," + y;
+    }
 
-    
+
 }

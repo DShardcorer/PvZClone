@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class GridSystem
@@ -38,7 +37,25 @@ public class GridSystem
 
     public GridPosition GetGridPosition(Vector2 worldPosition)
     {
-        return new GridPosition(Mathf.FloorToInt((worldPosition.x - originPosition.x) / cellSizeH), Mathf.FloorToInt((worldPosition.y - originPosition.y) / cellSizeV));
+        //Floor to positive integer
+        GridPosition gridPosition = new GridPosition(Mathf.FloorToInt((worldPosition.x - originPosition.x) / cellSizeH), Mathf.FloorToInt((worldPosition.y - originPosition.y) / cellSizeV));
+        if (gridPosition.x < 0)
+        {
+            gridPosition.x = 0;
+        }
+        if (gridPosition.x >= horizontalLength)
+        {
+            gridPosition.x = horizontalLength - 1;
+        }
+        if (gridPosition.y < 0)
+        {
+            gridPosition.y = 0;
+        }
+        if (gridPosition.y >= verticalLength)
+        {
+            gridPosition.y = verticalLength - 1;
+        }
+        return gridPosition;
     }
 
     public GridObject GetGridObject(GridPosition gridPosition)
@@ -60,5 +77,18 @@ public class GridSystem
         Debug.DrawLine(new Vector2(horizontalLength * cellSizeH + originPosition.x, 0), new Vector2(horizontalLength * cellSizeH + originPosition.x, verticalLength * cellSizeV + originPosition.y), Color.white, 100f, false);
     }
 
+    public bool IsWithinBounds(GridPosition gridPosition)
+    {
+        return gridPosition.x >= 0 && gridPosition.y >= 0 && gridPosition.x < horizontalLength && gridPosition.y < verticalLength;
+    }
 
+    public bool IsCellOccupiedByPlant(GridPosition gridPosition)
+    {
+        return GetGridObjectAtPosition(gridPosition).GetPlant() != null;
+    }
+
+    public GridObject GetGridObjectAtPosition(GridPosition gridPosition)
+    {
+        return gridArray[gridPosition.x, gridPosition.y];
+    }
 }
