@@ -26,9 +26,9 @@ public class StageManager : MonoBehaviour
         }
     }
 
-    public Bullet GetBullet(){
-        return BulletManager.ReturnBullet();
-    }
+    // public Bullet GetBullet(){
+    //     return BulletManager.ReturnBullet();
+    // }
 
     private void Start()
     {
