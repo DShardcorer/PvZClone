@@ -10,5 +10,6 @@ public class ZombieSO : ScriptableObject
     public int damage;
     public float speed;
     public float attackSpeed;
+    public GameObject zombiePrefab;
     
 }

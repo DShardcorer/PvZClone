@@ -7,6 +7,11 @@ public class Sunflower : Plant
 {
     [SerializeField] private Transform sunSpawnPoint;
 
+    protected override bool CanPerformAction()
+    {
+        return true;
+    }
+
     protected override void PerformAction()
     {
         ProduceSun();

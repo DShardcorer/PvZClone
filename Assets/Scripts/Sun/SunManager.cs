@@ -7,6 +7,7 @@ public class SunManager : MonoBehaviour
 {
     public static SunManager Instance;
     private int sunCount = 100;
+    [SerializeField] private RectTransform sunCollectionPoint;
 
     public event EventHandler OnSunChanged;
     private void Awake()
@@ -47,5 +48,10 @@ public class SunManager : MonoBehaviour
     public int GetSunCount()
     {
         return sunCount;
+    }
+    public Vector2 GetSunCollectionPointOnWorldSpace()
+    {
+        //Converts the sun collection point in UI position to world space
+        return sunCollectionPoint.position;
     }
 }

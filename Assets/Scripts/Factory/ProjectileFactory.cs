@@ -16,7 +16,7 @@ public class ProjectileFactory : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    [SerializeField] private ProjectilePool projectilePool;
+    [SerializeField] private ObjectPool projectilePool;
     public IProduct GetProduct(Vector2 position)
     {
         GameObject projectileGameObject = projectilePool.GetObject();

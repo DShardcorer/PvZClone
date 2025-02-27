@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6445190257990189890}
   - component: {fileID: 7829638706328890840}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: PeashooterPreview
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -18,7 +18,7 @@ public class SunFactory : Factory
         }
     }
 
-    [SerializeField] private SunPool sunPool;
+    [SerializeField] private ObjectPool sunPool;
 
     public override IProduct GetProduct(Vector2 position)
     {

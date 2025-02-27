@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bcc42a015cb8c534591add1913ba2d33, type: 3}
-  m_Name: ZombieBasicSO
+  m_Name: ZombieConeSO
   m_EditorClassIdentifier: 
-  zombieName: ZombieBasic
-  health: 70
+  zombieName: ZombieCone
+  health: 140
   damage: 10
   speed: 1
   attackSpeed: 4
-  zombiePrefab: {fileID: 2372327844201927990, guid: 36ed126875c179b419287384e0ea7320, type: 3}
+  zombiePrefab: {fileID: 6692300863735047707, guid: d56db5286ba4e454d9d36881b169240e, type: 3}

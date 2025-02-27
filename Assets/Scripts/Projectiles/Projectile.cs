@@ -8,7 +8,7 @@ public class Projectile : MonoBehaviour, IProduct
     [SerializeField] protected LayerMask zombiesLayer;
     private Rigidbody2D rb;
     [SerializeField] protected PlantSO plantSO;
-    protected ProjectilePool pool;
+    protected ObjectPool pool;
     private float projectileSpeed;
     private int damage;
 
@@ -25,9 +25,9 @@ public class Projectile : MonoBehaviour, IProduct
     }
 
 
-    protected virtual void SetPool()
+    public void SetPool()
     {
-        pool = GetComponentInParent<ProjectilePool>();
+        pool = GetComponentInParent<ObjectPool>();
     }
 
 
@@ -54,7 +54,7 @@ public class Projectile : MonoBehaviour, IProduct
         lifeTimeTimer = plantSO.projectileLifetime;
     }
 
-    public ProjectilePool GetPool()
+    public ObjectPool GetPool()
     {
         return pool;
     }

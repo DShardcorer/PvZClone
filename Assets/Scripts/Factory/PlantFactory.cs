@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlantFactory : MonoBehaviour
+public class PlantFactory : DictFactory
 {
     public static PlantFactory Instance { get; private set; }
 
@@ -37,7 +37,7 @@ public class PlantFactory : MonoBehaviour
 
 
 
-    public IProduct GetProduct(string plantName, GridPosition gridPosition)
+    public override IProduct GetProduct(string plantName, GridPosition gridPosition)
     {
         Vector2 worldPosition = GridManager.Instance.GetWorldPosition(gridPosition);
         GameObject plantGameObject = Instantiate(plantPrefabDict[plantName], worldPosition, Quaternion.identity);

@@ -122,6 +122,132 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &90781555
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 90781556}
+  m_Layer: 0
+  m_Name: ZombiePools
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &90781556
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90781555}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2082367807}
+  - {fileID: 274533422}
+  m_Father: {fileID: 401669772}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &274533421
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 274533422}
+  - component: {fileID: 274533424}
+  m_Layer: 0
+  m_Name: ZombieConePool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &274533422
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274533421}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 90781556}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &274533424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274533421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f2bcc9f3bc7daa40afeee62bde0a05a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectPrefab: {fileID: 6692300863735047707, guid: d56db5286ba4e454d9d36881b169240e, type: 3}
+  poolSize: 10
+--- !u!1 &354490501
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 354490502}
+  - component: {fileID: 354490503}
+  m_Layer: 0
+  m_Name: ZombieFactory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &354490502
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354490501}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 566834466}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &354490503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354490501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eb03953e0bbe154c8c8579bf4954bd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zombieSOList:
+  - {fileID: 11400000, guid: ff05b5ea374ce0441868730b000f8d7d, type: 2}
+  - {fileID: 11400000, guid: 97479ea83db14604ebc2478a0075b537, type: 2}
 --- !u!1 &401669771
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,6 +279,7 @@ Transform:
   m_Children:
   - {fileID: 1912630932}
   - {fileID: 1759213071}
+  - {fileID: 90781556}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &457337744
@@ -436,6 +563,7 @@ Transform:
   - {fileID: 1098620979}
   - {fileID: 1462879293}
   - {fileID: 744707064}
+  - {fileID: 354490502}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &606761352
@@ -690,7 +818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2d6183b0ee9ea478c49309b2ac6c20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePool: {fileID: 1912630931}
+  projectilePool: {fileID: 1912630933}
 --- !u!4 &744707064
 Transform:
   m_ObjectHideFlags: 0
@@ -1199,6 +1327,7 @@ Transform:
   - {fileID: 2134189374}
   - {fileID: 1187575651}
   - {fileID: 606761354}
+  - {fileID: 1985721237}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1462879292
@@ -1245,7 +1374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 000b229a2e95a5449ad77b83253cf105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sunPool: {fileID: 1759213072}
+  sunPool: {fileID: 1759213073}
 --- !u!1 &1556768009
 GameObject:
   m_ObjectHideFlags: 0
@@ -1382,7 +1511,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1759213071}
-  - component: {fileID: 1759213072}
+  - component: {fileID: 1759213073}
   m_Layer: 0
   m_Name: SunPool
   m_TagString: Untagged
@@ -1405,7 +1534,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 401669772}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1759213072
+--- !u!114 &1759213073
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1414,11 +1543,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1759213070}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 557f6341d1601174db16348bf65d45b4, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f2bcc9f3bc7daa40afeee62bde0a05a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   objectPrefab: {fileID: 1957792359958453877, guid: b206a28587683ca42b22340de9622f3a, type: 3}
-  poolSize: 10
+  poolSize: 5
 --- !u!1 &1771844025
 GameObject:
   m_ObjectHideFlags: 0
@@ -1428,7 +1557,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1771844026}
-  - component: {fileID: 1771844027}
   m_Layer: 5
   m_Name: SunCollectionPoint
   m_TagString: Untagged
@@ -1455,18 +1583,6 @@ RectTransform:
   m_AnchoredPosition: {x: 90, y: -74.1}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1771844027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1771844025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9d567cf96b73614393bde1e94496983, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1912630930
 GameObject:
   m_ObjectHideFlags: 0
@@ -1476,7 +1592,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1912630932}
-  - component: {fileID: 1912630931}
+  - component: {fileID: 1912630933}
   m_Layer: 0
   m_Name: PeaProjectilePool
   m_TagString: Untagged
@@ -1484,21 +1600,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1912630931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1912630930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e3fd8d1243866a438b0b320d8e60f23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectPrefab: {fileID: 5061709833790139221, guid: 606311a41c7f5cb4981c6ce9fb6a7729, type: 3}
-  poolSize: 20
-  peaPlantSO: {fileID: 11400000, guid: 7ff8d78632a80bd499fbe8c53b6cdcc9, type: 2}
 --- !u!4 &1912630932
 Transform:
   m_ObjectHideFlags: 0
@@ -1514,11 +1615,115 @@ Transform:
   m_Children: []
   m_Father: {fileID: 401669772}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1912630933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912630930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f2bcc9f3bc7daa40afeee62bde0a05a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectPrefab: {fileID: 5061709833790139221, guid: 606311a41c7f5cb4981c6ce9fb6a7729, type: 3}
+  poolSize: 20
 --- !u!224 &1976135487 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2702848804581567981, guid: 49b33ac4ca168624a89b6efb393f5ada, type: 3}
   m_PrefabInstance: {fileID: 648246427}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1985721236
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1985721237}
+  - component: {fileID: 1985721238}
+  m_Layer: 0
+  m_Name: ZombieManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1985721237
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985721236}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1331086819}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1985721238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985721236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d110541e7dbb38b48999f878d4fd68f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &2082367806
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2082367807}
+  - component: {fileID: 2082367809}
+  m_Layer: 0
+  m_Name: ZombieBasicPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2082367807
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082367806}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 90781556}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2082367809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082367806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f2bcc9f3bc7daa40afeee62bde0a05a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectPrefab: {fileID: 2372327844201927990, guid: 36ed126875c179b419287384e0ea7320, type: 3}
+  poolSize: 20
 --- !u!1 &2134189372
 GameObject:
   m_ObjectHideFlags: 0
@@ -1548,6 +1753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a6cd95a7206a154889acc7ddba59435, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sunCollectionPoint: {fileID: 1771844026}
 --- !u!4 &2134189374
 Transform:
   m_ObjectHideFlags: 0

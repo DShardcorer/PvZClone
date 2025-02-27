@@ -21,7 +21,7 @@ public class PlantPlacementManager : MonoBehaviour
     {
         if (isPlacingPlant && currentPlantPreview != null)
         {
-            currentPlantPreview.transform.position = MouseWorld.Instance.GetMouseWorldPosition()/canvas.scaleFactor;
+            currentPlantPreview.transform.position = MouseWorld.Instance.GetMouseWorldPosition();
 
             if (Input.GetMouseButtonDown(0) && !IsPointerOverUI())
             {

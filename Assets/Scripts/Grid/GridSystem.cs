@@ -34,6 +34,11 @@ public class GridSystem
     {
         return new Vector2(gridPosition.x * cellSizeH + originPosition.x, gridPosition.y * cellSizeV + originPosition.y);
     }
+    public Vector2 GetWorldPositionWithOffset(GridPosition gridPosition, Vector2 offset)
+    {
+        return new Vector2(gridPosition.x * cellSizeH + originPosition.x + offset.x, gridPosition.y * cellSizeV + originPosition.y + offset.y);
+    }
+    
 
     public GridPosition GetGridPosition(Vector2 worldPosition)
     {

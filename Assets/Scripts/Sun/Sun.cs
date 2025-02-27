@@ -5,27 +5,28 @@ using UnityEngine;
 public class Sun : MonoBehaviour, IProduct
 {
     [SerializeField] private float speed = 10f;
-    private Transform sunCollectionPoint;
+
+    private Vector2 sunCollectionPoint;
     private int sunValue = 25;
 
-    private SunPool pool;
+    private ObjectPool pool;
 
     private Rigidbody2D rb;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        SetPool();
     }
 
     private void Start()
     {
-        SetPool();
-        sunCollectionPoint = SunCollectionPoint.Instance.transform;
+        sunCollectionPoint = SunManager.Instance.GetSunCollectionPointOnWorldSpace();
     }
 
-    private void SetPool()
+    public void SetPool()
     {
-        pool = GetComponentInParent<SunPool>();
+        pool = GetComponentInParent<ObjectPool>();
     }
 
     public void Initialize()
@@ -43,19 +44,20 @@ public class Sun : MonoBehaviour, IProduct
 
     private void Collect()
     {
-        //Shoots the sun to the sun collection point and disables it
-        rb.velocity = (sunCollectionPoint.position - transform.position).normalized * speed * 2;
+        //Shoots the sun to the sun collection point
+        rb.velocity = (sunCollectionPoint - (Vector2)transform.position).normalized * speed * 4;
         StartCoroutine(SendSunToCollectionPoint());
-        
+
     }
 
     private IEnumerator SendSunToCollectionPoint()
     {
-        while (Vector2.Distance(transform.position, sunCollectionPoint.position) > 0.1f)
-        {
-            yield return null;
-        }
+        yield return new WaitForSeconds(0.5f);
         SunManager.Instance.AddSun(sunValue);
         pool.ReturnObject(gameObject);
     }
+
+
+
+
 }

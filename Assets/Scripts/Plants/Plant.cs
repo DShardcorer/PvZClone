@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.Pool;
 
 public abstract class Plant : MonoBehaviour, IProduct
 {
@@ -38,6 +40,11 @@ public abstract class Plant : MonoBehaviour, IProduct
                 timer -= Time.deltaTime;
                 if (timer <= 0)
                 {
+                    if(!CanPerformAction())
+                    {
+                        SetTimer(actionCooldownTimer);
+                        return;
+                    }
                     PerformAction();
                     ChangeState(State.PerformingAction);
                     SetTimer(performingActionTimer);
@@ -57,6 +64,8 @@ public abstract class Plant : MonoBehaviour, IProduct
 
     }
     protected abstract void PerformAction();
+
+    protected abstract bool CanPerformAction();
 
     protected void ChangeState(State newState)
     {
@@ -88,4 +97,16 @@ public abstract class Plant : MonoBehaviour, IProduct
     {
         GridManager.Instance.RemovePlantAtGridPosition(gridPosition);
     }
+
+    public void SetPool(){}
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
 }

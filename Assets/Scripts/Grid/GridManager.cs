@@ -8,6 +8,12 @@ public class GridManager : MonoBehaviour
 
     public static GridManager Instance { get; private set; }
 
+    private float cellSizeH = 1.6f;
+    private float cellSizeV = 2;
+    private int horizontalLength = 9;
+    private int verticalLength = 5;
+    private Vector2 originPosition = new Vector2((float)-8.1, (float)-4.5);
+
     private void Awake()
     {
         if (Instance == null)
@@ -18,10 +24,16 @@ public class GridManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        gridSystem = new GridSystem(9, 5, 1.6f, 2, new Vector2((float)-8.1, (float)-4.5));
+        gridSystem = new GridSystem(horizontalLength, verticalLength, cellSizeH, cellSizeV, originPosition);
 
         gridSystem.DrawDebugGrid();
     }
+
+    public float GetHorizontalLength()
+    {
+        return horizontalLength * cellSizeH;
+    }
+
 
     public Vector2 GetWorldPosition(GridPosition gridPosition)
     {

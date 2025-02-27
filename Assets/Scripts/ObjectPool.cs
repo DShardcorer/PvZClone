@@ -41,5 +41,10 @@ public class ObjectPool : MonoBehaviour
         objectStack.Push(obj);
     }
 
+    public GameObject GetPrefab()
+    {
+        return objectPrefab;
+    }
+
 
 }
