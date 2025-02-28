@@ -36,6 +36,7 @@ public class StageManager : MonoBehaviour
     private void Start()
     {
         enemyManager.Initialize(this);
+        
 
         gameOverScreen.SetActive(false);
     }

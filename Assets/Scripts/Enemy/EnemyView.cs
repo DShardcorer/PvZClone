@@ -1,14 +1,11 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
+
 using UnityEngine;
 
 public class EnemyView : MonoBehaviour, IProduct
 {
     private Rigidbody2D _rb;
     private Vector2 _offset;
-    private Enemy _controller;
+    private Enemy _parent;
 
     private void Awake()
     {
@@ -18,7 +15,11 @@ public class EnemyView : MonoBehaviour, IProduct
 
     public void Initialize(Enemy controller)
     {
-        _controller = controller;
+        _parent = controller;
+    }
+    public void Dispose(){
+        _parent = null;
+
     }
 
     public void Initialize()
@@ -30,12 +31,12 @@ public class EnemyView : MonoBehaviour, IProduct
 
     public void ResetSpeed()
     {
-        _rb.velocity = _controller.GetProperties().speed * Vector2.left;
+        _rb.velocity = _parent.GetProperties().speed * Vector2.left;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        _controller.OnTriggerEnter2D(other);
+        _parent.OnTriggerEnter2D(other);
     }
 
     public void SetSpeedToZero()
@@ -45,7 +46,7 @@ public class EnemyView : MonoBehaviour, IProduct
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        _controller.OnTriggerExit2D(other);
+        _parent.OnTriggerExit2D(other);
 
     }
 

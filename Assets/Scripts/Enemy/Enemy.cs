@@ -13,13 +13,15 @@ public class Enemy
     private bool _isAttacking;
     private Coroutine _attackCoroutine;
 
-    public void Initialize(EnemyManager parent, EnemyProperties properties, EnemyView view)
+    public Enemy(EnemyManager parent, EnemyProperties properties, EnemyView view)
     {
         _parent = parent;
         _properties = properties;
         _view = view;
         _view.Initialize(this);
+        //spaw obj SpawnEnemy(enemyName, gridPosition); gans view = doi tuong spaw
     }
+    public long GetId(long id) => _properties.Id;
 
     public EnemyView GetView()
     {
