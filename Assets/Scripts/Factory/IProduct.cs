@@ -6,5 +6,4 @@ public interface IProduct
 {
     public void Initialize();
 
-    public void SetPool();
 }

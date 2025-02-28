@@ -12,10 +12,10 @@ TagManager:
   - Water
   - UI
   - Plants
-  - Zombies
+  - Enemies
   - Projectiles
   - Suns
-  - 
+  - GameOver
   - 
   - 
   - 
@@ -55,4 +55,7 @@ TagManager:
     locked: 0
   - name: Sun
     uniqueID: 1473498125
+    locked: 0
+  - name: GameOver
+    uniqueID: 2240610415
     locked: 0

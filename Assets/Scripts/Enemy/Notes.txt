@@ -1,0 +1,94 @@
+// using System.Collections;
+// using System.Collections.Generic;
+// using UnityEngine;
+
+// public class Enemy
+// {
+//     private EnemyManager _parent;
+//     private EnemyProperties _properties;
+//     private EnemyView _view;
+
+//     public void Init(EnemyManager parent, EnemyProperties _properties)
+//     {
+//         _parent = parent;
+//         _properties = _properties;
+//         _view = //Get from pool and then GetComponent
+//     }
+
+//     public void Dispose()
+//     {
+//         // return view to pool
+//         _parent = null;
+//         _properties = null;  
+//         _view = null;
+//     }
+
+//     public void MoveToTarget(Vector2 target)
+//     {
+//         //logic tinh toan
+//         // chan cac dieu di chuyen stun, slow
+
+//         _view.HandleMove(target);
+//     }
+
+//     public void Shoot(){
+//         //call parent create bullet
+//         _view.HandleShowEffectShoot();
+//     }
+// }
+
+
+
+
+
+
+// using System.Collections;
+// using System.Collections.Generic;
+// using UnityEngine;
+
+// public class EnemyManager
+// {
+//     private StageManager _parent;
+//     private List<Enemy> enemies = new List<Enemy>();
+
+//     public void Init(StageManager Parent)
+//     {   
+//         _parent
+//     }
+
+//     public Bullet GetBullet(){
+//         _parent.GetBullet();
+//     }
+// }
+
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class EnemyProperties
+{
+    public long idEnemy;
+    public long hp;
+    public string name;
+}
+
+
+using System.Collections;
+using System.Collections.Generic;
+using System.Runtime.InteropServices;
+using UnityEngine;
+
+public class EnemyView : MonoBehaviour
+{
+    public Sprite image;
+
+    public void HandleMove(Vector2 target)
+    {
+        transform.position = target;
+    }
+
+    public void HandleShowEffectShoot(){
+        
+    }
+}
