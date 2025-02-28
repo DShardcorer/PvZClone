@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class StageManager : MonoBehaviour
 {
+    [SerializeField] private GridManager gridManager;
+    [SerializeField] private EnemyManager enemyManager;
+    [SerializeField] private EnemyFactory enemyFactory;
     public static StageManager Instance { get; private set; }
-    [SerializeField]private int zombiesPerWave = 5; 
-    [SerializeField]private float timeBetweenWaves = 10f; 
-    [SerializeField]private float spawnInterval = 1f; 
-    [SerializeField]private int maxLanes = 5;
+    [SerializeField] private int zombiesPerWave = 5;
+    [SerializeField] private float timeBetweenWaves = 10f;
+    [SerializeField] private float spawnInterval = 1f;
+    [SerializeField] private int maxLanes = 5;
 
-    [SerializeField]private GameObject gameOverScreen;
+    [SerializeField] private GameObject gameOverScreen;
     private int currentWave = 1;
     private bool waveStarted = false;
 
@@ -32,12 +35,14 @@ public class StageManager : MonoBehaviour
 
     private void Start()
     {
+        enemyManager.Initialize(this);
+
         gameOverScreen.SetActive(false);
     }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             if (!waveStarted)
             {
@@ -71,9 +76,9 @@ public class StageManager : MonoBehaviour
 
     private string GetZombieTypeForWave(int waveNumber)
     {
-        if (waveNumber < 3) return Random.value < 0.5f ? ZombieNames.ZombieBasic : ZombieNames.ZombieCone; 
-        if (waveNumber < 6) return Random.value < 0.8f ? ZombieNames.ZombieBasic : ZombieNames.ZombieCone; 
-        return Random.value < 0.5f ? ZombieNames.ZombieBasic : ZombieNames.ZombieCone; 
+        if (waveNumber < 3) return Random.value < 0.5f ? ZombieNames.ZombieBasic : ZombieNames.ZombieCone;
+        if (waveNumber < 6) return Random.value < 0.8f ? ZombieNames.ZombieBasic : ZombieNames.ZombieCone;
+        return Random.value < 0.5f ? ZombieNames.ZombieBasic : ZombieNames.ZombieCone;
     }
 
     public void SpawnZombieAtLane(int lane, string zombieType)
