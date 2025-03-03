@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy
+public class Enemy: IController
 {
     private EnemyManager _parent;
     private EnemyProperties _properties;
@@ -18,9 +18,17 @@ public class Enemy
         _parent = parent;
         _properties = properties;
         _view = view;
-        _view.Initialize(this);
-        //spaw obj SpawnEnemy(enemyName, gridPosition); gans view = doi tuong spaw
     }
+
+    public void Initialize()
+    {
+        _view.Initialize(this); // Assign this enemy to the view
+        _isAttacking = false;
+        _targetPlant = null;
+        _attackCoroutine = null;
+        _view.ResetSpeed(); // Reset speed to default
+    }
+
     public long GetId()
     {
         return _properties.Id;
@@ -43,10 +51,6 @@ public class Enemy
         {
             Die();
         }
-    }
-    public void DamagePlant()
-    {
-        _targetPlant.TakeDamage(_properties.Damage);
     }
 
     private void Die()
@@ -112,13 +116,10 @@ public class Enemy
             _attackCoroutine = null;
         }
 
-        // Remove references
         _targetPlant = null;
         _view.Dispose(); // Ensure EnemyView cleans up resources
         _view = null;
         _properties = null;
         _parent = null;
     }
-
-
 }

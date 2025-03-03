@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class DictFactory : MonoBehaviour
 {
-    public abstract IProduct GetProduct(string key, GridPosition gridPosition);
+    public abstract IController GetEnemy(string key, GridPosition gridPosition);
 }

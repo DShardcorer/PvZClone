@@ -93,11 +93,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2318679831156195011}
-  - component: {fileID: 7100633944270191055}
   - component: {fileID: 7056952089776366098}
   - component: {fileID: 4502694436083759392}
+  - component: {fileID: -775980242061390209}
   m_Layer: 0
-  m_Name: ProjectilePea
+  m_Name: ProjectilePeashooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,22 +119,6 @@ Transform:
   - {fileID: 2666678206789228726}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7100633944270191055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5061709833790139221}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3759b52e1b9b344d87e89920b1c55fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zombiesLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  plantSO: {fileID: 11400000, guid: 7ff8d78632a80bd499fbe8c53b6cdcc9, type: 2}
 --- !u!50 &7056952089776366098
 Rigidbody2D:
   serializedVersion: 4
@@ -197,3 +181,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.0014637113}
   serializedVersion: 2
   m_Radius: 0.11504385
+--- !u!114 &-775980242061390209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5061709833790139221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf2b4d46875e79c41a4e83947e32097a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

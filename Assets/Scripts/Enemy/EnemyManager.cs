@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
-public class EnemyManager : DictFactory
+public class EnemyManager : DictFactory, IManager
 {
     private StageManager _parent;
     [SerializeField] private List<EnemySO> enemySOList;
@@ -46,8 +46,9 @@ public class EnemyManager : DictFactory
     public void SpawnEnemyAtLane(string enemyName, int lane)
     {
         GridPosition gridPosition = new GridPosition(8, lane);
-        _enemies.Add((GetProduct(enemyName, gridPosition) as EnemyView).GetParent());
-        _currentId++;
+        Enemy enemy = (Enemy)GetEnemy(enemyName, gridPosition);
+        //print enemy info
+        Debug.Log($"Enemy spawned: {enemy.GetProperties().EnemyName} at lane {lane} with id {enemy.GetId()}");
     }
 
     public void RemoveEnemy(Enemy enemy)
@@ -62,7 +63,7 @@ public class EnemyManager : DictFactory
         _parent.GameOver();
     }
 
-    public override IProduct GetProduct(string enemyName, GridPosition gridPosition)
+    public override IController GetEnemy(string enemyName, GridPosition gridPosition)
     {
         if (!enemySODict.TryGetValue(enemyName, out EnemySO enemySO))
         {
@@ -84,8 +85,10 @@ public class EnemyManager : DictFactory
         EnemyView enemyView = enemyGameObject.GetComponent<EnemyView>();
         EnemyProperties enemyProperties = new EnemyProperties(_currentId, enemySO);
         Enemy enemy = new Enemy(this, enemyProperties, enemyView);
-        enemyView.Initialize();
+        enemy.Initialize();
+        _enemies.Add(enemy);
+        _currentId++;
 
-        return enemyView;
+        return enemy;
     }
 }

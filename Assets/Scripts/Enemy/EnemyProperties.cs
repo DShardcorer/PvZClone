@@ -1,6 +1,6 @@
 
 
-public class EnemyProperties
+public class EnemyProperties: IProperties
 {
     // Private fields
     private long _id;

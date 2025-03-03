@@ -64,7 +64,7 @@ public class PlantPlacementManager : MonoBehaviour
             return;
         }
         SunManager.Instance.SpendSun(currentPlantSO.sunCost);
-        PlantFactory.Instance.GetProduct(currentPlantSO.plantName, MouseWorld.Instance.GetMouseGridPosition());
+        PlantFactory.Instance.GetEnemy(currentPlantSO.plantName, MouseWorld.Instance.GetMouseGridPosition());
         CancelPlantPlacement();
     }
 

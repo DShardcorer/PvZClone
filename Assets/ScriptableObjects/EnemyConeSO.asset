@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: ZombieCone
   health: 200
-  damage: 0
-  speed: 0
-  attackSpeed: 0
+  damage: 10
+  speed: 3
+  attackSpeed: 2
   enemyPrefab: {fileID: 0}

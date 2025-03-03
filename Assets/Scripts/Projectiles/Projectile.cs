@@ -3,76 +3,55 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour, IProduct
+public class Projectile : IController
 {
-    [SerializeField] protected LayerMask zombiesLayer;
-    private Rigidbody2D rb;
-    [SerializeField] protected PlantSO plantSO;
-    protected ObjectPool pool;
-    private float projectileSpeed;
-    private int damage;
+    private ProjectileManager _parent;
 
-    private float lifeTimeTimer;
+    private ProjectileProperties _properties;
 
-    protected virtual void Awake()
+    private ProjectileView _view;
+
+
+
+    public Projectile(ProjectileManager parent, ProjectileProperties properties, ProjectileView view)
     {
-        projectileSpeed = plantSO.projectileSpeed;
-        damage = plantSO.damage;
-        lifeTimeTimer = plantSO.projectileLifetime;
-        rb = GetComponent<Rigidbody2D>();
-
-        SetPool();
+        _parent = parent;
+        _properties = properties;
+        _view = view;
+        
     }
-
-
-    public void SetPool()
-    {
-        pool = GetComponentInParent<ObjectPool>();
-    }
-
-
-    protected void Update()
-    {
-        lifeTimeTimer -= Time.deltaTime;
-        if (lifeTimeTimer <= 0)
-        {
-            pool.ReturnObject(gameObject);
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (((1 << collision.gameObject.layer) & zombiesLayer.value) != 0)
-        {
-            collision.gameObject.GetComponent<Zombie>().TakeDamage(damage);
-            pool.ReturnObject(gameObject);
-        }
-
-    }
-    private void ResetLifeTimeTimer()
-    {
-        lifeTimeTimer = plantSO.projectileLifetime;
-    }
-
-    public ObjectPool GetPool()
-    {
-        return pool;
-    }
-
-    public int GetDamage()
-    {
-        return damage;
-    }
-
-    public float GetSpeed()
-    {
-        return projectileSpeed;
-    }
-
     public void Initialize()
     {
-        gameObject.SetActive(true);
-        rb.velocity = new Vector2(projectileSpeed, 0);
-        ResetLifeTimeTimer();
+        _view.Initialize(this);
     }
+
+    public void Dispose()
+    {
+        //return to pool
+        
+        _parent = null;
+        _properties = null;
+        _view = null;
+    }
+
+    public ProjectileView GetView()
+    {
+        return _view;
+    }
+
+    public ProjectileProperties GetProperties()
+    {
+        return _properties;
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (((1 << collision.gameObject.layer) & LayerHelper.Enemies) != 0)
+        {
+            collision.gameObject.GetComponent<Zombie>().TakeDamage(_properties.Damage);
+            _parent.RemoveProjectile(this);
+        }
+    }
+
+
 }

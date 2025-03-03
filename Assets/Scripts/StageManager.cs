@@ -11,6 +11,8 @@ public class StageManager : MonoBehaviour
     [SerializeField] private GridManager gridManager;
     [SerializeField] private EnemyManager enemyManager;
     [SerializeField] private PoolManager poolManager;
+
+    [SerializeField] private ProjectileManager projectileManager;
     [SerializeField] private SunManager sunManager;
 
 
@@ -44,6 +46,8 @@ public class StageManager : MonoBehaviour
     {
         poolManager.Initialize(this);
         enemyManager.Initialize(this);
+        
+        projectileManager.Initialize(this);
 
 
 
@@ -94,9 +98,9 @@ public class StageManager : MonoBehaviour
 
     private string GetZombieTypeForWave(int waveNumber)
     {
-        if (waveNumber < 3) return Random.value < 0.5f ? ZombieNames.ZombieBasic : ZombieNames.ZombieCone;
-        if (waveNumber < 6) return Random.value < 0.8f ? ZombieNames.ZombieBasic : ZombieNames.ZombieCone;
-        return Random.value < 0.5f ? ZombieNames.ZombieBasic : ZombieNames.ZombieCone;
+        if (waveNumber < 3) return Random.value < 0.5f ? NameHelper.ZombieBasic : NameHelper.ZombieCone;
+        if (waveNumber < 6) return Random.value < 0.8f ? NameHelper.ZombieBasic : NameHelper.ZombieCone;
+        return Random.value < 0.5f ? NameHelper.ZombieBasic : NameHelper.ZombieCone;
     }
 
     public void SpawnZombieAtLane(int lane, string zombieType)

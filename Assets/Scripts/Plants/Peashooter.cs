@@ -7,14 +7,10 @@ public class Peashooter : Plant, IShootable
     [SerializeField] private LayerMask zombieLayer;
     [SerializeField] private Transform shootPoint;
 
-    private ProjectileFactory projectileFactory;
 
 
 
-    void Start()
-    {
-        projectileFactory = ProjectileFactory.Instance;
-    }
+
 
 
     protected override void PerformAction()
