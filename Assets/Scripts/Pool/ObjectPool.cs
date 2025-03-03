@@ -3,16 +3,19 @@ using UnityEngine;
 
 public class ObjectPool : MonoBehaviour
 {
-    [SerializeField] private GameObject objectPrefab;
-    [SerializeField] private int poolSize;
-    
+    private GameObject objectPrefab;
+    private int poolSize;
+
 
     protected Stack<GameObject> objectStack = new Stack<GameObject>();
 
-    protected virtual void Awake()
+    public void Initialize(GameObject prefab, int size)
     {
+        objectPrefab = prefab;
+        poolSize = size;
         FillPool();
     }
+
 
     protected virtual void FillPool()
     {

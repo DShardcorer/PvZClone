@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6445190257990189890}
   - component: {fileID: 7829638706328890840}
-  m_Layer: 0
-  m_Name: PeashooterPreview
+  m_Layer: 6
+  m_Name: PreviewSunflower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: -1652973349
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1c4c16f98cdf0a043a8339f5e94d3d06, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b811faecf6296fb49a8fa5fc6a0842a2, type: 3}
   m_Color: {r: 0.5924529, g: 0.57121396, b: 0.57121396, a: 0.65882355}
   m_FlipX: 0
   m_FlipY: 0

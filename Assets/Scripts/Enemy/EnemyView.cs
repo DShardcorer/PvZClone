@@ -13,13 +13,12 @@ public class EnemyView : MonoBehaviour, IProduct
         _offset = new Vector2(6, 0.5f);
     }
 
-    public void Initialize(Enemy controller)
+    public void Initialize(Enemy enemy)
     {
-        _parent = controller;
+        _parent = enemy;
     }
     public void Dispose(){
         _parent = null;
-
     }
 
     public void Initialize()
@@ -29,9 +28,14 @@ public class EnemyView : MonoBehaviour, IProduct
         ResetSpeed();
     }
 
+    public Enemy GetParent()
+    {
+        return _parent;
+    }
+
     public void ResetSpeed()
     {
-        _rb.velocity = _parent.GetProperties().speed * Vector2.left;
+        _rb.velocity = _parent.GetProperties().Speed * Vector2.left;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

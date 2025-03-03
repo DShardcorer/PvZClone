@@ -1,26 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+
 
 public class EnemyProperties
 {
-    public int id;
-    public int health;
-    public int damage;
+    // Private fields
+    private long _id;
+    private string _enemyName;
+    private int _health;
+    private int _damage;
+    private float _speed;
+    private float _attackSpeed;
 
-    public float speed;
+  
+    public long Id => _id; 
+    public string EnemyName => _enemyName;
+    public int Health { get => _health; set => _health = value; } // Allows modification
+    public int Damage => _damage;
+    public float Speed => _speed;
+    public float AttackSpeed => _attackSpeed;
 
-    public float attackSpeed;
-
-    public EnemyProperties(int id, EnemySO enemySO)
+    public EnemyProperties(long id, EnemySO enemySO)
     {
-        this.id = id;
-
-        health = enemySO.health;
-        damage = enemySO.damage;
-        speed = enemySO.speed;
-        attackSpeed = enemySO.attackSpeed;
+        _id = id;
+        _enemyName = enemySO.enemyName;
+        _health = enemySO.health;
+        _damage = enemySO.damage;
+        _speed = enemySO.speed;
+        _attackSpeed = enemySO.attackSpeed;
     }
-
-
 }

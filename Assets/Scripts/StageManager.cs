@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class StageManager : MonoBehaviour
 {
+
+    public static StageManager Instance { get; private set; }
+
+
     [SerializeField] private GridManager gridManager;
     [SerializeField] private EnemyManager enemyManager;
-    [SerializeField] private EnemyFactory enemyFactory;
-    public static StageManager Instance { get; private set; }
+    [SerializeField] private PoolManager poolManager;
+    [SerializeField] private SunManager sunManager;
+
+
+
     [SerializeField] private int zombiesPerWave = 5;
     [SerializeField] private float timeBetweenWaves = 10f;
     [SerializeField] private float spawnInterval = 1f;
@@ -35,11 +42,21 @@ public class StageManager : MonoBehaviour
 
     private void Start()
     {
+        poolManager.Initialize(this);
         enemyManager.Initialize(this);
-        
+
+
+
 
         gameOverScreen.SetActive(false);
     }
+
+    public PoolManager GetPoolManager()
+    {
+        return poolManager;
+    }
+
+
 
     private void Update()
     {
@@ -84,7 +101,7 @@ public class StageManager : MonoBehaviour
 
     public void SpawnZombieAtLane(int lane, string zombieType)
     {
-        ZombieFactory.Instance.GetProduct(zombieType, new GridPosition(8, lane));
+        enemyManager.SpawnEnemyAtLane(zombieType, lane);
     }
 
     public void GameOver()

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2815330719659411216}
   - component: {fileID: 4037234272771207617}
   m_Layer: 5
-  m_Name: PeashooterPlantCard
+  m_Name: PlantCardPeashooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

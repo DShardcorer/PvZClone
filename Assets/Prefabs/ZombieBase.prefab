@@ -128,9 +128,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4385110365782264697}
-  - component: {fileID: 2757210945831006182}
   - component: {fileID: 6978177551153455999}
   - component: {fileID: 4523470368796203324}
+  - component: {fileID: 6786634455819951794}
   m_Layer: 7
   m_Name: ZombieBase
   m_TagString: Untagged
@@ -154,25 +154,6 @@ Transform:
   - {fileID: 6349944364328459960}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2757210945831006182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6469416421649903239}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1517165b1b0a214429acd7588b08fdc0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zombieSO: {fileID: 11400000, guid: ff05b5ea374ce0441868730b000f8d7d, type: 2}
-  plantLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  gameOverLayer:
-    serializedVersion: 2
-    m_Bits: 1024
 --- !u!61 &6978177551153455999
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -245,3 +226,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6786634455819951794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6469416421649903239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c793eceb2f35bcf459b16d3be4b89145, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

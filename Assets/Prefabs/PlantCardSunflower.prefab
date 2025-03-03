@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2815330719659411216}
   - component: {fileID: -870868624526312761}
   m_Layer: 5
-  m_Name: SunflowerPlantCard
+  m_Name: PlantCardSunflower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

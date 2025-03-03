@@ -21,7 +21,10 @@ public class Enemy
         _view.Initialize(this);
         //spaw obj SpawnEnemy(enemyName, gridPosition); gans view = doi tuong spaw
     }
-    public long GetId(long id) => _properties.Id;
+    public long GetId()
+    {
+        return _properties.Id;
+    }
 
     public EnemyView GetView()
     {
@@ -35,15 +38,15 @@ public class Enemy
 
     public void TakeDamage(int damage)
     {
-        _properties.health -= damage;
-        if (_properties.health <= 0)
+        _properties.Health -= damage;
+        if (_properties.Health <= 0)
         {
             Die();
         }
     }
     public void DamagePlant()
     {
-        _targetPlant.TakeDamage(_properties.damage);
+        _targetPlant.TakeDamage(_properties.Damage);
     }
 
     private void Die()
@@ -55,8 +58,8 @@ public class Enemy
     {
         while (_targetPlant != null)
         {
-            _targetPlant.TakeDamage(_properties.damage);
-            yield return new WaitForSeconds(1f / _properties.attackSpeed);
+            _targetPlant.TakeDamage(_properties.Damage);
+            yield return new WaitForSeconds(1f / _properties.AttackSpeed);
         }
 
         _isAttacking = false;
@@ -94,6 +97,27 @@ public class Enemy
             _targetPlant = null;
             _view.ResetSpeed();
         }
+    }
+
+    public void UpdateHp(int hp)
+    {
+        _properties.Health = hp;
+    }
+
+    public void Dispose()
+    {
+        if (_attackCoroutine != null)
+        {
+            _view.StopCoroutine(_attackCoroutine);
+            _attackCoroutine = null;
+        }
+
+        // Remove references
+        _targetPlant = null;
+        _view.Dispose(); // Ensure EnemyView cleans up resources
+        _view = null;
+        _properties = null;
+        _parent = null;
     }
 
 

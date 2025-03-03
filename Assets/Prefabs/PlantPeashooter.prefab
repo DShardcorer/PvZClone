@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7707916191924597597}
   - component: {fileID: 8477186250947488211}
-  - component: {fileID: 358519365393007599}
+  - component: {fileID: 3889851062842925858}
   m_Layer: 6
   m_Name: Visual
   m_TagString: Untagged
@@ -28,8 +28,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7588121846921130040}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: -1652973349
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b811faecf6296fb49a8fa5fc6a0842a2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1c4c16f98cdf0a043a8339f5e94d3d06, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &358519365393007599
+--- !u!95 &3889851062842925858
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -115,10 +115,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7588121846921130040}
-  - component: {fileID: 9018540105351964122}
-  - component: {fileID: -6340096867131055858}
+  - component: {fileID: 5489173282571376589}
+  - component: {fileID: 8985842234917743386}
   m_Layer: 6
-  m_Name: Sunflower
+  m_Name: PlantPeashooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,14 +134,14 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7707916191924597597}
   - {fileID: 2086886714359651923}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9018540105351964122
+--- !u!114 &5489173282571376589
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -150,12 +150,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3412518144866848956}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed1877c13afc82a4bb3dc4cbe78f7cfd, type: 3}
+  m_Script: {fileID: 11500000, guid: 9cb66077d3ebd7946a8791bf75b91fe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plantSO: {fileID: 11400000, guid: 5a89b146497d2f446b32d0663a0b6ef8, type: 2}
-  sunSpawnPoint: {fileID: 2086886714359651923}
---- !u!61 &-6340096867131055858
+  plantSO: {fileID: 11400000, guid: 7ff8d78632a80bd499fbe8c53b6cdcc9, type: 2}
+  zombieLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  shootPoint: {fileID: 2086886714359651923}
+--- !u!61 &8985842234917743386
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -187,7 +190,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.033282667, y: 0.010697931}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -198,7 +201,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.6053639, y: 0.75989014}
   m_EdgeRadius: 0
 --- !u!1 &7230742996186875451
 GameObject:
@@ -210,7 +213,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2086886714359651923}
   m_Layer: 6
-  m_Name: SunSpawnPoint
+  m_Name: ShootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -225,7 +228,7 @@ Transform:
   m_GameObject: {fileID: 7230742996186875451}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.143, y: 0.833, z: 0}
+  m_LocalPosition: {x: 0.27, y: 0.211, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

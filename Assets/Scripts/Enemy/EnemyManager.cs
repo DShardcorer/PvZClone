@@ -1,51 +1,91 @@
-using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
-public class EnemyManager: MonoBehaviour
+public class EnemyManager : DictFactory
 {
     private StageManager _parent;
-    [SerializeField] private EnemyFactory _enemyFactory;
+    [SerializeField] private List<EnemySO> enemySOList;
+    private Dictionary<string, EnemySO> enemySODict = new Dictionary<string, EnemySO>();
     private List<Enemy> _enemies = new List<Enemy>();
-    private long _currentid = 0;
+    private long _currentId = 0;
+    private PoolManager _poolManager;
 
     public void Initialize(StageManager parent)
-    {   
+    {
         _parent = parent;
+        _poolManager = StageManager.Instance.GetPoolManager();
+        PopulateDictionary();
     }
 
-    public void SpawnEnemyAtLane(string enemyName, int lane){
-        GridPosition gridPosition = new GridPosition(8, lane);
-        _currentid ++;
-        _enemies.Add(new Enemy(this, _currentid, enemyName, gridPosition));
-    }
-    public Enemy GetEnemyById(long id){
-        foreach (Enemy enemy in _enemies){
-            if (enemy.GetId() == id){
-                return enemy;
+    private void PopulateDictionary()
+    {
+        foreach (var enemySO in enemySOList)
+        {
+            if (!enemySODict.ContainsKey(enemySO.enemyName))
+            {
+                enemySODict.Add(enemySO.enemyName, enemySO);
             }
         }
-        return null;
     }
 
-    public void UpdateHpEnemyById(long id, int hp){
-        GetEnemyById(id).UpdateHp(hp);
+    public Enemy GetEnemyById(long id)
+    {
+        return _enemies.Find(enemy => enemy.GetId() == id);
     }
 
-    public IProduct SpawnEnemy(string enemyName, GridPosition gridPosition){
-        return _enemyFactory.GetProduct(enemyName, gridPosition);
+    public void UpdateHpEnemyById(long id, int hp)
+    {
+        var enemy = GetEnemyById(id);
+        if (enemy != null)
+        {
+            enemy.UpdateHp(hp);
+        }
     }
 
-    public void RemoveEnemy(Enemy enemy){
-        enemy.Dispese();
+    public void SpawnEnemyAtLane(string enemyName, int lane)
+    {
+        GridPosition gridPosition = new GridPosition(8, lane);
+        _enemies.Add((GetProduct(enemyName, gridPosition) as EnemyView).GetParent());
+        _currentId++;
+    }
+
+    public void RemoveEnemy(Enemy enemy)
+    {
         _enemies.Remove(enemy);
-        
-        enemy.GetView().GetComponentInParent<ObjectPool>().ReturnObject(enemy.GetView().gameObject);
+        _poolManager.ReturnObject(enemy.GetProperties().EnemyName, enemy.GetView().gameObject);
+        enemy.Dispose();
     }
 
-    public void GameOver(){
+    public void GameOver()
+    {
         _parent.GameOver();
     }
 
+    public override IProduct GetProduct(string enemyName, GridPosition gridPosition)
+    {
+        if (!enemySODict.TryGetValue(enemyName, out EnemySO enemySO))
+        {
+            Debug.LogError($"EnemyManager: No EnemySO found for {enemyName}");
+            return null;
+        }
 
+        // Get enemy object from PoolManager
+
+
+        GameObject enemyGameObject = _poolManager.GetObject(enemyName);
+        if (enemyGameObject == null)
+        {
+            Debug.LogError($"EnemyManager: No pooled object found for {enemyName}");
+            return null;
+        }
+
+        enemyGameObject.transform.position = GridManager.Instance.GetWorldPosition(gridPosition);
+        EnemyView enemyView = enemyGameObject.GetComponent<EnemyView>();
+        EnemyProperties enemyProperties = new EnemyProperties(_currentId, enemySO);
+        Enemy enemy = new Enemy(this, enemyProperties, enemyView);
+        enemyView.Initialize();
+
+        return enemyView;
+    }
 }
