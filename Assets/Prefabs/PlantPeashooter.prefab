@@ -115,8 +115,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7588121846921130040}
-  - component: {fileID: 5489173282571376589}
   - component: {fileID: 8985842234917743386}
+  - component: {fileID: 8432121473004293774}
   m_Layer: 6
   m_Name: PlantPeashooter
   m_TagString: Untagged
@@ -141,23 +141,6 @@ Transform:
   - {fileID: 2086886714359651923}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5489173282571376589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3412518144866848956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cb66077d3ebd7946a8791bf75b91fe4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  plantSO: {fileID: 11400000, guid: 7ff8d78632a80bd499fbe8c53b6cdcc9, type: 2}
-  zombieLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  shootPoint: {fileID: 2086886714359651923}
 --- !u!61 &8985842234917743386
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -203,6 +186,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6053639, y: 0.75989014}
   m_EdgeRadius: 0
+--- !u!114 &8432121473004293774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3412518144866848956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5484896a0e1ca294291cf39bd70722f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shootPoint: {fileID: 2086886714359651923}
 --- !u!1 &7230742996186875451
 GameObject:
   m_ObjectHideFlags: 0

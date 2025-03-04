@@ -1,8 +1,7 @@
 using System.Collections.Generic;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
-public class EnemyManager : DictFactory, IManager
+public class EnemyManager : MonoBehaviour, IDictFactory, IManager
 {
     private StageManager _parent;
     [SerializeField] private List<EnemySO> enemySOList;
@@ -46,7 +45,8 @@ public class EnemyManager : DictFactory, IManager
     public void SpawnEnemyAtLane(string enemyName, int lane)
     {
         GridPosition gridPosition = new GridPosition(8, lane);
-        Enemy enemy = (Enemy)GetEnemy(enemyName, gridPosition);
+        Vector2 worldPosition = GridManager.Instance.GetWorldPosition(gridPosition);
+        Enemy enemy = (Enemy)GetProduct(enemyName, worldPosition);
         //print enemy info
         Debug.Log($"Enemy spawned: {enemy.GetProperties().EnemyName} at lane {lane} with id {enemy.GetId()}");
     }
@@ -63,8 +63,9 @@ public class EnemyManager : DictFactory, IManager
         _parent.GameOver();
     }
 
-    public override IController GetEnemy(string enemyName, GridPosition gridPosition)
+    public IController GetProduct(string enemyName, Vector2 position)
     {
+        GridPosition gridPosition = GridManager.Instance.GetGridPosition(position);
         if (!enemySODict.TryGetValue(enemyName, out EnemySO enemySO))
         {
             Debug.LogError($"EnemyManager: No EnemySO found for {enemyName}");

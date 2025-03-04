@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileManager : MonoBehaviour
+public class ProjectileManager :MonoBehaviour, IDictFactory, IManager
 {
     private StageManager _parent;
     [SerializeField] private List<PlantSO> plantSOList;
@@ -39,7 +39,7 @@ public class ProjectileManager : MonoBehaviour
     }
 
 
-    public IController GetProjectile(string projectileName, Vector3 shootPoint)
+    public IController GetProduct(string projectileName, Vector2 shootPoint)
     {
         if (!projectileSOList.TryGetValue(projectileName, out PlantSO plantSO))
         {
@@ -66,4 +66,5 @@ public class ProjectileManager : MonoBehaviour
 
         return projectile;
     }
+
 }

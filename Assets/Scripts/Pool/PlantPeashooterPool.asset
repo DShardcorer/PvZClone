@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fdbd3987b678f074589e75e773fdcf81, type: 3}
-  m_Name: ProjectilePeashooterPool
+  m_Name: PlantPeashooterPool
   m_EditorClassIdentifier: 
-  key: ProjectilePeashooter
-  prefab: {fileID: 5061709833790139221, guid: 606311a41c7f5cb4981c6ce9fb6a7729, type: 3}
-  size: 30
+  key: Peashooter
+  prefab: {fileID: 3412518144866848956, guid: 2d62ce29307ccb34499cdf63e7db3cb2, type: 3}
+  size: 10

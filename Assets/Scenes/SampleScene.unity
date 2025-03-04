@@ -1467,6 +1467,8 @@ MonoBehaviour:
   poolSOList:
   - {fileID: 11400000, guid: d15239f15feaf594fae0d160a33f0ef1, type: 2}
   - {fileID: 11400000, guid: b85eb73fae281764f9374ad9638034a6, type: 2}
+  - {fileID: 11400000, guid: 038648647603dc540a0240950e8ad72d, type: 2}
+  - {fileID: 11400000, guid: f45a0984e37cd9b4ab6fb954c8dd6476, type: 2}
   - {fileID: 11400000, guid: ce5dcd747b346bb45bf81b837f922fd8, type: 2}
 --- !u!1 &1331086818
 GameObject:
@@ -1934,8 +1936,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridManager: {fileID: 606761353}
-  enemyManager: {fileID: 1081795065}
+  plantManager: {fileID: 0}
+  enemyManager: {fileID: 0}
   poolManager: {fileID: 1245455887}
+  projectileManager: {fileID: 0}
   sunManager: {fileID: 2134189373}
   zombiesPerWave: 5
   timeBetweenWaves: 10

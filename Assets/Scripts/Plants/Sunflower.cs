@@ -7,6 +7,10 @@ public class Sunflower : Plant
 {
     [SerializeField] private Transform sunSpawnPoint;
 
+    public Sunflower(PlantManager parent, PlantProperties properties, PlantView view) : base(parent, properties, view)
+    {
+    }
+
     protected override bool CanPerformAction()
     {
         return true;

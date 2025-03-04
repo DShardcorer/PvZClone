@@ -9,9 +9,9 @@ public class StageManager : MonoBehaviour
 
 
     [SerializeField] private GridManager gridManager;
+    [SerializeField] private PlantManager plantManager;
     [SerializeField] private EnemyManager enemyManager;
     [SerializeField] private PoolManager poolManager;
-
     [SerializeField] private ProjectileManager projectileManager;
     [SerializeField] private SunManager sunManager;
 
@@ -45,8 +45,8 @@ public class StageManager : MonoBehaviour
     private void Start()
     {
         poolManager.Initialize(this);
+        plantManager.Initialize(this);
         enemyManager.Initialize(this);
-        
         projectileManager.Initialize(this);
 
 
@@ -58,6 +58,10 @@ public class StageManager : MonoBehaviour
     public PoolManager GetPoolManager()
     {
         return poolManager;
+    }
+    public ProjectileManager GetProjectileManager()
+    {
+        return projectileManager;
     }
 
 

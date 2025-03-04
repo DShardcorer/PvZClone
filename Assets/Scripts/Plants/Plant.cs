@@ -1,19 +1,18 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.Pool;
 
-public abstract class Plant : MonoBehaviour, IProduct
+
+public abstract class Plant : IController
 {
+    protected PlantManager _parent;
     [SerializeField] protected PlantSO plantSO;
-    private GridPosition gridPosition;
-    protected int health;
+    protected GridPosition _gridPosition;
+    protected PlantProperties _properties;
+    protected PlantView _view;
 
-    protected float timer;
-    protected float actionCooldownTimer = 3f;
-    protected float performingActionTimer = 1f;
+    protected float _timer;
+
 
     public enum State
     {
@@ -24,39 +23,48 @@ public abstract class Plant : MonoBehaviour, IProduct
 
     public event EventHandler ActionInitiated;
     public event EventHandler ActionCompleted;
-    protected virtual void Awake()
+
+    public Plant(PlantManager parent, PlantProperties properties, PlantView view)
     {
-        health = plantSO.health;
-        actionCooldownTimer = plantSO.actionCooldownTimer;
-        performingActionTimer = plantSO.performActionTimer;
-        SetTimer(actionCooldownTimer);
+        _parent = parent;
+        _properties = properties;
+        _view = view;
     }
+
+    public virtual void Initialize()
+    {
+        SetGridPosition(GridManager.Instance.GetGridPosition(_view.transform.position));
+        GridManager.Instance.SetPlantAtGridPosition(_gridPosition, this);
+        SetTimer(_properties.ActionCooldownTimer);
+    }
+
+
 
     protected void Update()
     {
         switch (state)
         {
             case State.Idle:
-                timer -= Time.deltaTime;
-                if (timer <= 0)
+                _timer -= Time.deltaTime;
+                if (_timer <= 0)
                 {
-                    if(!CanPerformAction())
+                    if (!CanPerformAction())
                     {
-                        SetTimer(actionCooldownTimer);
+                        SetTimer(_properties.ActionCooldownTimer);
                         return;
                     }
                     PerformAction();
                     ChangeState(State.PerformingAction);
-                    SetTimer(performingActionTimer);
+                    SetTimer(_properties.PerformActionTimer);
                     ActionInitiated?.Invoke(this, EventArgs.Empty);
                 }
                 break;
             case State.PerformingAction:
-                timer -= Time.deltaTime;
-                if (timer <= 0)
+                _timer -= Time.deltaTime;
+                if (_timer <= 0)
                 {
                     ChangeState(State.Idle);
-                    SetTimer(actionCooldownTimer);
+                    SetTimer(_properties.ActionCooldownTimer);
                     ActionCompleted?.Invoke(this, EventArgs.Empty);
                 }
                 break;
@@ -74,39 +82,39 @@ public abstract class Plant : MonoBehaviour, IProduct
 
     protected void SetTimer(float time)
     {
-        timer = time;
+        _timer = time;
     }
 
     public void SetGridPosition(GridPosition gridPosition)
     {
-        this.gridPosition = gridPosition;
+        _gridPosition = gridPosition;
     }
 
     public GridPosition GetGridPosition()
     {
-        return gridPosition;
+        return _gridPosition;
     }
-
-    public void Initialize()
-    {
-        SetGridPosition(GridManager.Instance.GetGridPosition(transform.position));
-        GridManager.Instance.SetPlantAtGridPosition(gridPosition, this);
-    }
-
-    private void OnDestroy()
-    {
-        GridManager.Instance.RemovePlantAtGridPosition(gridPosition);
-    }
-
-    public void SetPool(){}
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
-        if (health <= 0)
+        _properties.SetHealth(_properties.Health - damage);
+        if (_properties.Health <= 0)
         {
-            Destroy(gameObject);
+            Die();
         }
     }
 
+    private void Die()
+    {
+        //_parent.RemovePlant(this);
+    }
+
+    public virtual void Dispose()
+    {
+        _parent = null;
+        _properties = null;
+        _view = null;
+
+
+    }
 }

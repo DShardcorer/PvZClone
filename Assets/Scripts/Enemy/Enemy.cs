@@ -108,7 +108,7 @@ public class Enemy: IController
         _properties.Health = hp;
     }
 
-    public void Dispose()
+    public void Dispose() // Dispose is only for clearing references and calling the view's Dispose method
     {
         if (_attackCoroutine != null)
         {

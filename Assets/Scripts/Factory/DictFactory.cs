@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
-public abstract class DictFactory : MonoBehaviour
+public interface IDictFactory
 {
-    public abstract IController GetEnemy(string key, GridPosition gridPosition);
+    public IController GetProduct(string key, Vector2 position);
 }
