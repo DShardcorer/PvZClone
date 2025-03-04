@@ -6,13 +6,13 @@ public class GridObject
 {
     private GridPosition gridPosition;
     private Plant plant;
-    private List<Zombie> zombies;
+    private List<Enemy> enemies;
 
     public GridObject(GridPosition gridPosition, Plant plant)
     {
         this.gridPosition = gridPosition;
         this.plant = plant;
-        zombies = new List<Zombie>();
+        enemies = new List<Enemy>();
     }
 
     public GridPosition GridPosition
@@ -25,23 +25,23 @@ public class GridObject
         return plant;
     }
 
-    public Zombie GetZombie()
+    public Enemy GetZombie()
     {
-        if (zombies.Count > 0)
+        if (enemies.Count > 0)
         {
-            return zombies[0];
+            return enemies[0];
         }
         return null;
     }
 
-    public void AddZombie(Zombie zombie)
+    public void AddEnemy(Enemy zombie)
     {
-        zombies.Add(zombie);
+        enemies.Add(zombie);
     }
 
-    public void RemoveZombie(Zombie zombie)
+    public void RemoveEnemy(Enemy zombie)
     {
-        zombies.Remove(zombie);
+        enemies.Remove(zombie);
     }
 
     public void SetPlant(Plant plant)

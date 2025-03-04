@@ -31,8 +31,19 @@ public abstract class Plant : IController
         _view = view;
     }
 
+    public PlantProperties GetProperties()
+    {
+        return _properties;
+    }
+    public PlantView GetView()
+    {
+        return _view;
+    }
+
     public virtual void Initialize()
     {
+        Debug.Log("Plant Initialize");
+        _view.Initialize(this);
         SetGridPosition(GridManager.Instance.GetGridPosition(_view.transform.position));
         GridManager.Instance.SetPlantAtGridPosition(_gridPosition, this);
         SetTimer(_properties.ActionCooldownTimer);

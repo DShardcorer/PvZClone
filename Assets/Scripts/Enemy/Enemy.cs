@@ -53,7 +53,7 @@ public class Enemy: IController
         }
     }
 
-    private void Die()
+    public void Die()
     {
         _parent.RemoveEnemy(this);
     }

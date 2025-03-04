@@ -46,6 +46,13 @@ public class PlantManager : MonoBehaviour, IDictFactory, IManager
         _plantTypeMapping[key] = (typeof(TPlant), typeof(TProperties));
     }
 
+    public void RemovePlant(Plant plant)
+    {
+        _plants.Remove(plant);
+        _poolManager.ReturnObject(plant.GetProperties().PlantName, plant.GetView().gameObject);
+        plant.Dispose();
+    }
+
     public IController GetProduct(string key, Vector2 position)
     {
 

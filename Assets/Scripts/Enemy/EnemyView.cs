@@ -46,6 +46,10 @@ public class EnemyView : MonoBehaviour, IView
         _parent.OnTriggerExit2D(other);
 
     }
+    public void TakeDamage(int damage)
+    {
+        _parent.TakeDamage(damage);
+    }
 
 
 

@@ -17,18 +17,18 @@ public class PlantPlacementManager : MonoBehaviour
         currentPlantSO = plantSO;
     }
 
-    // void Update()
-    // {
-    //     if (isPlacingPlant && currentPlantPreview != null)
-    //     {
-    //         currentPlantPreview.transform.position = MouseWorld.Instance.GetMouseWorldPosition();
+    void Update()
+    {
+        if (isPlacingPlant && currentPlantPreview != null)
+        {
+            currentPlantPreview.transform.position = MouseWorld.Instance.GetMouseWorldPosition();
 
-    //         if (Input.GetMouseButtonDown(0) && !IsPointerOverUI())
-    //         {
-    //             PlacePlant(currentPlantPreview.transform.position);
-    //         }
-    //     }
-    // }
+            if (Input.GetMouseButtonDown(0) && !IsPointerOverUI())
+            {
+                PlacePlant(currentPlantPreview.transform.position);
+            }
+        }
+    }
 
     // Called by the PlantCard when a card is clicked.
     public void StartPlantPlacement(PlantSO plantSO)
@@ -53,20 +53,19 @@ public class PlantPlacementManager : MonoBehaviour
         isPlacingPlant = false;
     }
 
-    // Finalizes the placement of the plant.
-    // private void PlacePlant(Vector2 position)
-    // {
-    //     if (!GridManager.Instance.IsWithinBounds(GridManager.Instance.GetGridPosition(position)) 
-    //     || GridManager.Instance.IsCellOccupiedByPlant(GridManager.Instance.GetGridPosition(position))
-    //     || !SunManager.Instance.CanAfford(currentPlantSO.sunCost))
-    //     {
-    //         CancelPlantPlacement();
-    //         return;
-    //     }
-    //     SunManager.Instance.SpendSun(currentPlantSO.sunCost);
-    //     PlantFactory.Instance.GetEnemy(currentPlantSO.plantName, MouseWorld.Instance.GetMouseGridPosition());
-    //     CancelPlantPlacement();
-    // }
+    private void PlacePlant(Vector2 position)
+    {
+        if (!GridManager.Instance.IsWithinBounds(GridManager.Instance.GetGridPosition(position)) 
+        || GridManager.Instance.IsCellOccupiedByPlant(GridManager.Instance.GetGridPosition(position))
+        || !SunManager.Instance.CanAfford(currentPlantSO.sunCost))
+        {
+            CancelPlantPlacement();
+            return;
+        }
+        SunManager.Instance.SpendSun(currentPlantSO.sunCost);
+        IController plant = StageManager.Instance.GetPlantManager().GetProduct(currentPlantSO.plantName, position);
+        CancelPlantPlacement();
+    }
 
     private bool IsPointerOverUI()
     {
