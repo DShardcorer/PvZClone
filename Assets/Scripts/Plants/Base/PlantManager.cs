@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlantManager : MonoBehaviour, IDictFactory, IManager
 {
     private StageManager _parent;
+
+    private GridManager _gridManager;
     [SerializeField] private List<PlantSO> _plantSOList;
     private Dictionary<string, PlantSO> _plantSODict = new Dictionary<string, PlantSO>();
     private List<Plant> _plants = new List<Plant>();
@@ -15,6 +17,7 @@ public class PlantManager : MonoBehaviour, IDictFactory, IManager
     public void Initialize(StageManager manager)
     {
         _parent = manager;
+        _gridManager = StageManager.Instance.GetGridManager();
         _poolManager = StageManager.Instance.GetPoolManager();
         PopulateDictionary();
         PopulatePlantTypeMapping();
@@ -22,8 +25,8 @@ public class PlantManager : MonoBehaviour, IDictFactory, IManager
 
     private void PopulatePlantTypeMapping()
     {
-        RegisterPlantType<Peashooter, PeashooterProperties>("Peashooter");
-        RegisterPlantType<Sunflower, SunflowerProperties>("Sunflower");
+        RegisterPlantType<Peashooter, PeashooterProperties>(NameHelper.Peashooter);
+        RegisterPlantType<Sunflower, SunflowerProperties>(NameHelper.Sunflower);
     }
 
     private void PopulateDictionary()
@@ -46,17 +49,18 @@ public class PlantManager : MonoBehaviour, IDictFactory, IManager
         _plantTypeMapping[key] = (typeof(TPlant), typeof(TProperties));
     }
 
-    public void RemovePlant(Plant plant)
+    public void ReturnObject(IController controller)
     {
+        Plant plant = (Plant)controller;
         _plants.Remove(plant);
         _poolManager.ReturnObject(plant.GetProperties().PlantName, plant.GetView().gameObject);
         plant.Dispose();
     }
 
-    public IController GetProduct(string key, Vector2 position)
+    public IController GetObject(string key, Vector2 position)
     {
 
-        GridPosition gridPosition = GridManager.Instance.GetGridPosition(position);
+        GridPosition gridPosition = _gridManager.GetGridPosition(position);
         if (!_plantSODict.TryGetValue(key, out PlantSO plantSO))
         {
             Debug.LogError($"PlantManager: No PlantSO found for key '{key}'.");
@@ -70,7 +74,7 @@ public class PlantManager : MonoBehaviour, IDictFactory, IManager
             return null;
         }
 
-        plantGameObject.transform.position = GridManager.Instance.GetWorldPosition(gridPosition);
+        plantGameObject.transform.position = _gridManager.GetWorldPosition(gridPosition);
         PlantView plantView = plantGameObject.GetComponent<PlantView>();
         if (plantView == null)
         {

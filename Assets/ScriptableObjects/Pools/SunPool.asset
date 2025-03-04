@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcc42a015cb8c534591add1913ba2d33, type: 3}
-  m_Name: ZombieConeSO
+  m_Script: {fileID: 11500000, guid: fdbd3987b678f074589e75e773fdcf81, type: 3}
+  m_Name: SunPool
   m_EditorClassIdentifier: 
-  zombieName: ZombieCone
-  health: 140
-  damage: 10
-  speed: 1
-  attackSpeed: 4
-  zombiePrefab: {fileID: 6692300863735047707, guid: d56db5286ba4e454d9d36881b169240e, type: 3}
+  key: Sun
+  prefab: {fileID: 1957792359958453877, guid: b206a28587683ca42b22340de9622f3a, type: 3}
+  size: 5

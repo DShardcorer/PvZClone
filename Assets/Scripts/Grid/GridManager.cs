@@ -2,32 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GridManager : MonoBehaviour
+public class GridManager : MonoBehaviour, IManager
 {
     private GridSystem gridSystem;
 
-    public static GridManager Instance { get; private set; }
+    private StageManager _parent;
+    [SerializeField] private float cellSizeH = 1.6f;
+    [SerializeField] private float cellSizeV = 2;
+    [SerializeField] private int horizontalLength = 9;
+    [SerializeField] private int verticalLength = 5;
+    [SerializeField] private Vector2 originPosition = new Vector2((float)-8.1, (float)-4.5);
 
-    private float cellSizeH = 1.6f;
-    private float cellSizeV = 2;
-    private int horizontalLength = 9;
-    private int verticalLength = 5;
-    private Vector2 originPosition = new Vector2((float)-8.1, (float)-4.5);
-
-    private void Awake()
+    public void Initialize(StageManager manager)
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        _parent = manager;
         gridSystem = new GridSystem(horizontalLength, verticalLength, cellSizeH, cellSizeV, originPosition);
-
         gridSystem.DrawDebugGrid();
     }
+
 
     public float GetHorizontalLength()
     {

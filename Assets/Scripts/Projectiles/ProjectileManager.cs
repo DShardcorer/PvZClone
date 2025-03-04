@@ -31,15 +31,16 @@ public class ProjectileManager :MonoBehaviour, IDictFactory, IManager
 
 
 
-    public void RemoveProjectile(Projectile projectile)
+    public void ReturnObject(IController controller)
     {
+        Projectile projectile = (Projectile)controller;
         _projectiles.Remove(projectile);
         _poolManager.ReturnObject(projectile.GetProperties().ProjectileName, projectile.GetView().gameObject);
         projectile.Dispose();
     }
 
 
-    public IController GetProduct(string projectileName, Vector2 shootPoint)
+    public IController GetObject(string projectileName, Vector2 shootPoint)
     {
         if (!projectileSOList.TryGetValue(projectileName, out PlantSO plantSO))
         {

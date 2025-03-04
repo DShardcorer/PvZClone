@@ -2,39 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sun : MonoBehaviour, IProduct
+public class Sun : MonoBehaviour, IController
 {
-    [SerializeField] private float speed = 10f;
+    [SerializeField] private float _speed = 10f;
+    private SunManager _parent;
 
-    private Vector2 sunCollectionPoint;
+    private Vector2 _sunCollectionPoint;
     private int sunValue = 25;
 
-    private ObjectPool pool;
-
-    private Rigidbody2D rb;
-
+    private Rigidbody2D _rb;
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
-        SetPool();
+        _rb = GetComponent<Rigidbody2D>();
+        _sunCollectionPoint = StageManager.Instance.GetSunManager().GetSunCollectionPointOnWorldSpace();
     }
 
-    private void Start()
-    {
-        sunCollectionPoint = SunManager.Instance.GetSunCollectionPointOnWorldSpace();
-    }
 
-    public void SetPool()
-    {
-        pool = GetComponentInParent<ObjectPool>();
-    }
+
 
     public void Initialize()
     {
+        _parent = StageManager.Instance.GetSunManager();
         gameObject.SetActive(true);
         float angle = Random.Range(0, 360);
         Vector3 direction = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0);
-        rb.velocity = direction * speed;
+        _rb.velocity = direction * _speed;
     }
 
     private void OnMouseDown()
@@ -45,7 +37,7 @@ public class Sun : MonoBehaviour, IProduct
     private void Collect()
     {
         //Shoots the sun to the sun collection point
-        rb.velocity = (sunCollectionPoint - (Vector2)transform.position).normalized * speed * 4;
+        _rb.velocity = (_sunCollectionPoint - (Vector2)transform.position).normalized * _speed * 4;
         StartCoroutine(SendSunToCollectionPoint());
 
     }
@@ -53,11 +45,13 @@ public class Sun : MonoBehaviour, IProduct
     private IEnumerator SendSunToCollectionPoint()
     {
         yield return new WaitForSeconds(0.5f);
-        SunManager.Instance.AddSun(sunValue);
-        pool.ReturnObject(gameObject);
+        _parent.AddSun(sunValue);
+        
     }
 
-
-
-
+    public void Dispose()
+    {
+        _parent = null;
+        gameObject.SetActive(false);
+    }
 }

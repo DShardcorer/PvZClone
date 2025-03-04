@@ -4,9 +4,10 @@ using UnityEngine;
 public class StageManager : MonoBehaviour
 {
     public static StageManager Instance { get; private set; }
-
+    [SerializeField] private MouseWorld mouseWorld;
     [SerializeField] private GridManager gridManager;
     [SerializeField] private PlantManager plantManager;
+    [SerializeField] private PlantPlacementManager plantPlacementManager;
     [SerializeField] private EnemyManager enemyManager;
     [SerializeField] private PoolManager poolManager;
     [SerializeField] private ProjectileManager projectileManager;
@@ -29,13 +30,15 @@ public class StageManager : MonoBehaviour
 
     private void Start()
     {
-
+        mouseWorld.Initialize(this);
+        gridManager.Initialize(this);
         poolManager.Initialize(this);
         plantManager.Initialize(this);
+        plantPlacementManager.Initialize(this);
         enemyManager.Initialize(this);
         projectileManager.Initialize(this);
+        sunManager.Initialize(this);
         waveManager.Initialize(this);
-
         gameOverScreen.SetActive(false);
     }
 
@@ -46,7 +49,10 @@ public class StageManager : MonoBehaviour
             waveManager.StartWaves();
         }
     }
-
+    public MouseWorld GetMouseWorld()
+    {
+        return mouseWorld;
+    }
     public PoolManager GetPoolManager()
     {
         return poolManager;
@@ -55,6 +61,10 @@ public class StageManager : MonoBehaviour
     public PlantManager GetPlantManager()
     {
         return plantManager;
+    }
+    public PlantPlacementManager GetPlantPlacementManager()
+    {
+        return plantPlacementManager;
     }
 
     public ProjectileManager GetProjectileManager()
@@ -66,6 +76,10 @@ public class StageManager : MonoBehaviour
     {
         return gridManager;
     }
+    public SunManager GetSunManager()
+    {
+        return sunManager;
+    }
 
     // Called by WaveManager to spawn an enemy.
     public void SpawnEnemyAtLane(int lane, string enemyType)
@@ -76,6 +90,7 @@ public class StageManager : MonoBehaviour
     public void GameOver()
     {
         gameOverScreen.SetActive(true);
-        StopAllCoroutines();
+        waveManager.StopAllCoroutines();
+
     }
 }

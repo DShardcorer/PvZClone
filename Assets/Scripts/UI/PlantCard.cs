@@ -1,43 +1,47 @@
 using System;
 using Unity.VisualScripting;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class PlantCard : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] private PlantSO plantSO;
-    private CanvasGroup canvasGroup;
+    private SunManager _sunManager;
+    private CanvasGroup _canvasGroup;
     // Reference to the PlantPlacementManager in the scene:
-    private PlantPlacementManager placementManager;
+    private PlantPlacementManager _placementManager;
     private void Awake()
     {
-        canvasGroup = GetComponent<CanvasGroup>();
+        _canvasGroup = GetComponent<CanvasGroup>();
+        
     }
 
     // Called when the card is clicked.
     private void Start()
     {
-        placementManager = FindObjectOfType<PlantPlacementManager>();
-        SunManager.Instance.OnSunChanged += SunManager_OnSunChanged;
+        _sunManager = StageManager.Instance.GetSunManager();
+        _placementManager = StageManager.Instance.GetPlantPlacementManager();
+        _sunManager.OnSunChanged += SunManager_OnSunChanged;
     }
 
     private void SunManager_OnSunChanged(object sender, EventArgs e)
     {
-        if (SunManager.Instance.CanAfford(plantSO.sunCost))
+        if (_sunManager.CanAfford(plantSO.sunCost))
         {
-            canvasGroup.alpha = 1f;
-            canvasGroup.interactable = true;
+            _canvasGroup.alpha = 1f;
+            _canvasGroup.interactable = true;
 
         }
         else
         {
-            canvasGroup.alpha = 0.5f;
-            canvasGroup.interactable = false;
+            _canvasGroup.alpha = 0.5f;
+            _canvasGroup.interactable = false;
         }
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        placementManager.StartPlantPlacement(plantSO);
+        _placementManager.StartPlantPlacement(plantSO);
     }
 }

@@ -6,7 +6,6 @@ public class ProjectileView : MonoBehaviour, IView
 {
     private Rigidbody2D _rb;
 
-    protected ObjectPool pool;
 
     private Projectile _parent;
 
@@ -28,7 +27,7 @@ public class ProjectileView : MonoBehaviour, IView
         lifeTimeTimer -= Time.deltaTime;
         if (lifeTimeTimer <= 0)
         {
-            pool.ReturnObject(gameObject);
+            _parent.ReturnObject();
         }
     }
 
@@ -42,10 +41,7 @@ public class ProjectileView : MonoBehaviour, IView
         lifeTimeTimer = _parent.GetProperties().ProjectileLifetime;
     }
 
-    public ObjectPool GetPool()
-    {
-        return pool;
-    }
+
 
     public void Dispose()
     {

@@ -4,6 +4,7 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour, IDictFactory, IManager
 {
     private StageManager _parent;
+    private GridManager _gridManager;
     [SerializeField] private List<EnemySO> enemySOList;
     private Dictionary<string, EnemySO> enemySODict = new Dictionary<string, EnemySO>();
     private List<Enemy> _enemies = new List<Enemy>();
@@ -14,6 +15,7 @@ public class EnemyManager : MonoBehaviour, IDictFactory, IManager
     {
         _parent = parent;
         _poolManager = StageManager.Instance.GetPoolManager();
+        _gridManager = StageManager.Instance.GetGridManager();
         PopulateDictionary();
     }
 
@@ -45,14 +47,15 @@ public class EnemyManager : MonoBehaviour, IDictFactory, IManager
     public void SpawnEnemyAtLane(string enemyName, int lane)
     {
         GridPosition gridPosition = new GridPosition(8, lane);
-        Vector2 worldPosition = GridManager.Instance.GetWorldPosition(gridPosition);
-        Enemy enemy = (Enemy)GetProduct(enemyName, worldPosition);
+        Vector2 worldPosition = _gridManager.GetWorldPosition(gridPosition);
+        Enemy enemy = (Enemy)GetObject(enemyName, worldPosition);
         //print enemy info
         Debug.Log($"Enemy spawned: {enemy.GetProperties().EnemyName} at lane {lane} with id {enemy.GetId()}");
     }
 
-    public void RemoveEnemy(Enemy enemy)
+    public void ReturnObject(IController controller)
     {
+        Enemy enemy = (Enemy)controller;
         _enemies.Remove(enemy);
         _poolManager.ReturnObject(enemy.GetProperties().EnemyName, enemy.GetView().gameObject);
         enemy.Dispose();
@@ -63,9 +66,9 @@ public class EnemyManager : MonoBehaviour, IDictFactory, IManager
         _parent.GameOver();
     }
 
-    public IController GetProduct(string enemyName, Vector2 position)
+    public IController GetObject(string enemyName, Vector2 position)
     {
-        GridPosition gridPosition = GridManager.Instance.GetGridPosition(position);
+        GridPosition gridPosition = _gridManager.GetGridPosition(position);
         if (!enemySODict.TryGetValue(enemyName, out EnemySO enemySO))
         {
             Debug.LogError($"EnemyManager: No EnemySO found for {enemyName}");
@@ -82,14 +85,13 @@ public class EnemyManager : MonoBehaviour, IDictFactory, IManager
             return null;
         }
 
-        enemyGameObject.transform.position = GridManager.Instance.GetWorldPosition(gridPosition);
+        enemyGameObject.transform.position = _gridManager.GetWorldPosition(gridPosition);
         EnemyView enemyView = enemyGameObject.GetComponent<EnemyView>();
         EnemyProperties enemyProperties = new EnemyProperties(_currentId, enemySO);
         Enemy enemy = new Enemy(this, enemyProperties, enemyView);
         enemy.Initialize();
         _enemies.Add(enemy);
         _currentId++;
-
         return enemy;
     }
 }

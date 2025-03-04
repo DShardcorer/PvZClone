@@ -49,8 +49,12 @@ public class Projectile : IController
         if (((1 << collision.gameObject.layer) & LayerHelper.Enemies) != 0)
         {
             collision.gameObject.GetComponent<EnemyView>().TakeDamage(_properties.Damage);
-            _parent.RemoveProjectile(this);
+            _parent.ReturnObject(this);
         }
+    }
+    public void ReturnObject()
+    {
+        _parent.ReturnObject(this);
     }
 
 

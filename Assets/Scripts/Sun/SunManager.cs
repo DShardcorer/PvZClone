@@ -3,27 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SunManager : MonoBehaviour
+public class SunManager : MonoBehaviour, IFactory, IManager
 {
-    public static SunManager Instance;
+    private StageManager _parent;
+
+    private PoolManager _poolManager;
+
     private int sunCount = 100;
     [SerializeField] private RectTransform sunCollectionPoint;
 
-    public event EventHandler OnSunChanged;
-    private void Awake()
+    public void Initialize(StageManager parent)
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        _parent = parent;
+        _poolManager = _parent.GetPoolManager();
     }
+
+    public event EventHandler OnSunChanged;
+
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             AddSun(25);
         }
@@ -54,4 +53,13 @@ public class SunManager : MonoBehaviour
         //Converts the sun collection point in UI position to world space
         return sunCollectionPoint.position;
     }
+
+    public IController GetObject(Vector2 position)
+    {
+        Sun sun = _poolManager.GetObject(NameHelper.Sun).GetComponent<Sun>();
+        sun.transform.position = position;
+        sun.Initialize();
+        return sun;
+    }
+
 }

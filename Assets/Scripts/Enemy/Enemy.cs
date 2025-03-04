@@ -55,7 +55,7 @@ public class Enemy: IController
 
     public void Die()
     {
-        _parent.RemoveEnemy(this);
+        _parent.ReturnObject(this);
     }
 
     private IEnumerator AttackCoroutine()
@@ -74,7 +74,7 @@ public class Enemy: IController
     {
         if (((1 << other.gameObject.layer) & LayerHelper.Plants) != 0)
         {
-            _targetPlant = other.GetComponent<Plant>();
+            _targetPlant = other.GetComponent<PlantView>().GetParent();
             if (!_isAttacking)
             {
                 _isAttacking = true;

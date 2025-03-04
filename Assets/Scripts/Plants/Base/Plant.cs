@@ -5,8 +5,9 @@ using UnityEngine;
 
 public abstract class Plant : IController
 {
+    private GridManager _gridManager;
+    [SerializeField] protected PlantSO _plantSO;
     protected PlantManager _parent;
-    [SerializeField] protected PlantSO plantSO;
     protected GridPosition _gridPosition;
     protected PlantProperties _properties;
     protected PlantView _view;
@@ -42,16 +43,18 @@ public abstract class Plant : IController
 
     public virtual void Initialize()
     {
-        Debug.Log("Plant Initialize");
+
         _view.Initialize(this);
-        SetGridPosition(GridManager.Instance.GetGridPosition(_view.transform.position));
-        GridManager.Instance.SetPlantAtGridPosition(_gridPosition, this);
+        _gridManager = StageManager.Instance.GetGridManager();
+        SetGridPosition(_gridManager.GetGridPosition(_view.transform.position));
+        Debug.Log(_gridPosition);
+        _gridManager.SetPlantAtGridPosition(_gridPosition, this);
         SetTimer(_properties.ActionCooldownTimer);
     }
 
 
 
-    protected void Update()
+    public void Update()
     {
         switch (state)
         {
@@ -108,6 +111,7 @@ public abstract class Plant : IController
 
     public void TakeDamage(int damage)
     {
+
         _properties.SetHealth(_properties.Health - damage);
         if (_properties.Health <= 0)
         {
@@ -117,7 +121,7 @@ public abstract class Plant : IController
 
     private void Die()
     {
-        //_parent.RemovePlant(this);
+        _parent.ReturnObject(this);
     }
 
     public virtual void Dispose()

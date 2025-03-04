@@ -60,9 +60,11 @@
     "cSpell.words": [
         "Behaviour",
         "Cooldown",
+        "interactable",
         "Lerp",
         "Rigidbody",
         "Scriptable",
-        "Shootable"
+        "Shootable",
+        "UGUI"
     ]
 }

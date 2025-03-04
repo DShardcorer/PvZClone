@@ -2,20 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MouseWorld : MonoBehaviour
+public class MouseWorld : MonoBehaviour, IManager
 {
-    public static MouseWorld Instance { get; private set; }
+    private StageManager _parent;
+    private GridManager _gridManager;
 
-    private void Awake()
+    public void Initialize(StageManager manager)
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        _parent = manager;
+        _gridManager = _parent.GetGridManager();
     }
 
     public Vector2 GetMouseWorldPosition()
@@ -25,7 +20,7 @@ public class MouseWorld : MonoBehaviour
 
     public GridPosition GetMouseGridPosition()
     {
-        return GridManager.Instance.GetGridPosition(GetMouseWorldPosition());
+        return _gridManager.GetGridPosition(GetMouseWorldPosition());
     }
 
     void Update()
@@ -46,4 +41,6 @@ public class MouseWorld : MonoBehaviour
             }
         }
     }
+
+
 }
