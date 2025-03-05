@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class MouseWorld : MonoBehaviour, IManager
 {
-    private StageManager _parent;
+    private GameManager _parent;
     private GridManager _gridManager;
 
-    public void Initialize(StageManager manager)
+    public void Initialize(GameManager manager)
     {
         _parent = manager;
         _gridManager = _parent.GetGridManager();

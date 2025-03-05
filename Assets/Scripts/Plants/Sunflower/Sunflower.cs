@@ -16,7 +16,7 @@ public class Sunflower : Plant
         base.Initialize();
         _sunflowerView = (SunflowerView)_view;
         _sunflowerProperties = (SunflowerProperties)_properties;
-        _sunManager = StageManager.Instance.GetSunManager();
+        _sunManager = GameManager.Instance.GetSunManager();
     }
 
     protected override bool CanPerformAction()

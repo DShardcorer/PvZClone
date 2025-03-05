@@ -1,6 +1,6 @@
 
 public interface IManager
 {
-    public void Initialize(StageManager manager);
+    public void Initialize(GameManager manager);
 
 }

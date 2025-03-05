@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class ProjectileManager :MonoBehaviour, IDictFactory, IManager
 {
-    private StageManager _parent;
+    private GameManager _parent;
     [SerializeField] private List<PlantSO> plantSOList;
     private Dictionary<string, PlantSO> projectileSOList = new Dictionary<string, PlantSO>();
     private List<Projectile> _projectiles = new List<Projectile>();
     private long _currentId = 0;
     private PoolManager _poolManager;
 
-    public void Initialize(StageManager parent)
+    public void Initialize(GameManager parent)
     {
         _parent = parent;
-        _poolManager = StageManager.Instance.GetPoolManager();
+        _poolManager = GameManager.Instance.GetPoolManager();
         PopulateDictionary();
     }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlantManager : MonoBehaviour, IDictFactory, IManager
 {
-    private StageManager _parent;
+    private GameManager _parent;
 
     private GridManager _gridManager;
     [SerializeField] private List<PlantSO> _plantSOList;
@@ -14,11 +14,11 @@ public class PlantManager : MonoBehaviour, IDictFactory, IManager
     private PoolManager _poolManager;
     private Dictionary<string, (Type plantType, Type propertiesType)> _plantTypeMapping = new Dictionary<string, (Type, Type)>();
 
-    public void Initialize(StageManager manager)
+    public void Initialize(GameManager manager)
     {
         _parent = manager;
-        _gridManager = StageManager.Instance.GetGridManager();
-        _poolManager = StageManager.Instance.GetPoolManager();
+        _gridManager = GameManager.Instance.GetGridManager();
+        _poolManager = GameManager.Instance.GetPoolManager();
         PopulateDictionary();
         PopulatePlantTypeMapping();
     }

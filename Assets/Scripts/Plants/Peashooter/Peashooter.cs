@@ -18,8 +18,8 @@ public class Peashooter : Plant, IShootable
         base.Initialize();
         _peashooterView = (PeashooterView)_view;
         _peashooterProperties = (PeashooterProperties)_properties;
-        _projectileManager = StageManager.Instance.GetProjectileManager();
-        _gridManager = StageManager.Instance.GetGridManager();
+        _projectileManager = GameManager.Instance.GetProjectileManager();
+        _gridManager = GameManager.Instance.GetGridManager();
     }
 
     protected override void PerformAction()

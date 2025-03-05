@@ -14,7 +14,7 @@ public class Sun : MonoBehaviour, IController
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _sunCollectionPoint = StageManager.Instance.GetSunManager().GetSunCollectionPointOnWorldSpace();
+        _sunCollectionPoint = GameManager.Instance.GetSunManager().GetSunCollectionPointOnWorldSpace();
     }
 
 
@@ -22,7 +22,7 @@ public class Sun : MonoBehaviour, IController
 
     public void Initialize()
     {
-        _parent = StageManager.Instance.GetSunManager();
+        _parent = GameManager.Instance.GetSunManager();
         gameObject.SetActive(true);
         float angle = Random.Range(0, 360);
         Vector3 direction = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0);

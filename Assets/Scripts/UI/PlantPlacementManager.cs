@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 public class PlantPlacementManager : MonoBehaviour, IManager
 {
     [SerializeField] private Canvas canvas;
-    private StageManager _parent;
+    private GameManager _parent;
     private SunManager _sunManager;
     private GridManager _gridManager;
     private MouseWorld _mouseWorld;
@@ -13,7 +13,7 @@ public class PlantPlacementManager : MonoBehaviour, IManager
     private PlantSO _currentPlantSO;
 
 
-    public void Initialize(StageManager manager)
+    public void Initialize(GameManager manager)
     {
         _parent = manager;
         _sunManager = _parent.GetSunManager();
@@ -76,7 +76,7 @@ public class PlantPlacementManager : MonoBehaviour, IManager
             return;
         }
         _sunManager.SpendSun(_currentPlantSO.sunCost);
-        IController plant = StageManager.Instance.GetPlantManager().GetObject(_currentPlantSO.plantName, position);
+        IController plant = GameManager.Instance.GetPlantManager().GetObject(_currentPlantSO.plantName, position);
         CancelPlantPlacement();
     }
 

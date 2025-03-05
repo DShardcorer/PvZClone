@@ -1,9 +1,9 @@
 using System.Collections;
 using UnityEngine;
 
-public class StageManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    public static StageManager Instance { get; private set; }
+    public static GameManager Instance { get; private set; }
     [SerializeField] private MouseWorld mouseWorld;
     [SerializeField] private GridManager gridManager;
     [SerializeField] private PlantManager plantManager;
@@ -12,7 +12,7 @@ public class StageManager : MonoBehaviour
     [SerializeField] private PoolManager poolManager;
     [SerializeField] private ProjectileManager projectileManager;
     [SerializeField] private SunManager sunManager;
-    [SerializeField] private WaveManager waveManager;
+    [SerializeField] private StageManager stageManager;
 
     [SerializeField] private GameObject gameOverScreen;
 
@@ -38,7 +38,7 @@ public class StageManager : MonoBehaviour
         enemyManager.Initialize(this);
         projectileManager.Initialize(this);
         sunManager.Initialize(this);
-        waveManager.Initialize(this);
+        stageManager.Initialize(this);
         gameOverScreen.SetActive(false);
     }
 
@@ -46,7 +46,7 @@ public class StageManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            waveManager.StartWaves();
+            stageManager.StartStage();
         }
     }
     public MouseWorld GetMouseWorld()
@@ -80,17 +80,15 @@ public class StageManager : MonoBehaviour
     {
         return sunManager;
     }
-
-    // Called by WaveManager to spawn an enemy.
-    public void SpawnEnemyAtLane(int lane, string enemyType)
+    public EnemyManager GetEnemyManager()
     {
-        enemyManager.SpawnEnemyAtLane(enemyType, lane);
+        return enemyManager;
     }
 
     public void GameOver()
     {
         gameOverScreen.SetActive(true);
-        waveManager.StopAllCoroutines();
+        StopAllCoroutines();
 
     }
 }

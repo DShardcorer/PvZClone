@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class SunManager : MonoBehaviour, IFactory, IManager
 {
-    private StageManager _parent;
+    private GameManager _parent;
 
     private PoolManager _poolManager;
 
     private int sunCount = 100;
     [SerializeField] private RectTransform sunCollectionPoint;
 
-    public void Initialize(StageManager parent)
+    public void Initialize(GameManager parent)
     {
         _parent = parent;
         _poolManager = _parent.GetPoolManager();

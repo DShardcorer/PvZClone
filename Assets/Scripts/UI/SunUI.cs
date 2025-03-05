@@ -9,7 +9,7 @@ public class SunUI : MonoBehaviour
 
     private void Start()
     {
-        StageManager.Instance.GetSunManager().OnSunChanged += SunManager_OnSunChanged;
+        GameManager.Instance.GetSunManager().OnSunChanged += SunManager_OnSunChanged;
         UpdateSunText();
     }
 
@@ -20,6 +20,6 @@ public class SunUI : MonoBehaviour
 
     private void UpdateSunText()
     {
-        sunText.text = StageManager.Instance.GetSunManager().GetSunCount().ToString();
+        sunText.text = GameManager.Instance.GetSunManager().GetSunCount().ToString();
     }
 }

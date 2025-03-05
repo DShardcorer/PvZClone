@@ -6,14 +6,14 @@ public class GridManager : MonoBehaviour, IManager
 {
     private GridSystem gridSystem;
 
-    private StageManager _parent;
+    private GameManager _parent;
     [SerializeField] private float cellSizeH = 1.6f;
     [SerializeField] private float cellSizeV = 2;
     [SerializeField] private int horizontalLength = 9;
     [SerializeField] private int verticalLength = 5;
     [SerializeField] private Vector2 originPosition = new Vector2((float)-8.1, (float)-4.5);
 
-    public void Initialize(StageManager manager)
+    public void Initialize(GameManager manager)
     {
         _parent = manager;
         gridSystem = new GridSystem(horizontalLength, verticalLength, cellSizeH, cellSizeV, originPosition);
@@ -57,5 +57,10 @@ public class GridManager : MonoBehaviour, IManager
     public Vector2 GetWorldPositionFromClosestGridPosition(Vector2 worldPosition)
     {
         return gridSystem.GetWorldPositionFromClosestGridPosition(worldPosition);
+    }
+
+    public Vector2 GetLaneEndWorldPosition(int lane)
+    {
+        return gridSystem.GetLaneEndWorldPosition(lane);
     }
 }

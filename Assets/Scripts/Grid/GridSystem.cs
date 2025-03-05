@@ -102,4 +102,9 @@ public class GridSystem
         GridPosition gridPosition = GetGridPosition(worldPosition);
         return GetWorldPosition(gridPosition);
     }
+
+    public Vector2 GetLaneEndWorldPosition(int lane)
+    {
+        return GetWorldPosition(new GridPosition(horizontalLength - 1, lane));
+    }
 }

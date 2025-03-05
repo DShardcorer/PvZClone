@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour, IDictFactory, IManager
 {
-    private StageManager _parent;
+    private GameManager _parent;
     private GridManager _gridManager;
     [SerializeField] private List<EnemySO> enemySOList;
     private Dictionary<string, EnemySO> enemySODict = new Dictionary<string, EnemySO>();
@@ -11,11 +11,11 @@ public class EnemyManager : MonoBehaviour, IDictFactory, IManager
     private long _currentId = 0;
     private PoolManager _poolManager;
 
-    public void Initialize(StageManager parent)
+    public void Initialize(GameManager parent)
     {
         _parent = parent;
-        _poolManager = StageManager.Instance.GetPoolManager();
-        _gridManager = StageManager.Instance.GetGridManager();
+        _poolManager = GameManager.Instance.GetPoolManager();
+        _gridManager = GameManager.Instance.GetGridManager();
         PopulateDictionary();
     }
 

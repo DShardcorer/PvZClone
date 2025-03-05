@@ -6,7 +6,7 @@ using UnityEngine;
 public abstract class Plant : IController
 {
     private GridManager _gridManager;
-    [SerializeField] protected PlantSO _plantSO;
+    protected PlantSO _plantSO;
     protected PlantManager _parent;
     protected GridPosition _gridPosition;
     protected PlantProperties _properties;
@@ -45,7 +45,7 @@ public abstract class Plant : IController
     {
 
         _view.Initialize(this);
-        _gridManager = StageManager.Instance.GetGridManager();
+        _gridManager = GameManager.Instance.GetGridManager();
         SetGridPosition(_gridManager.GetGridPosition(_view.transform.position));
         Debug.Log(_gridPosition);
         _gridManager.SetPlantAtGridPosition(_gridPosition, this);
@@ -129,7 +129,5 @@ public abstract class Plant : IController
         _parent = null;
         _properties = null;
         _view = null;
-
-
     }
 }

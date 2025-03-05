@@ -20,8 +20,8 @@ public class PlantCard : MonoBehaviour, IPointerClickHandler
     // Called when the card is clicked.
     private void Start()
     {
-        _sunManager = StageManager.Instance.GetSunManager();
-        _placementManager = StageManager.Instance.GetPlantPlacementManager();
+        _sunManager = GameManager.Instance.GetSunManager();
+        _placementManager = GameManager.Instance.GetPlantPlacementManager();
         _sunManager.OnSunChanged += SunManager_OnSunChanged;
     }
 

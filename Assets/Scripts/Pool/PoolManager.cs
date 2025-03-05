@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PoolManager : MonoBehaviour
 {
-    private StageManager _parent;
+    private GameManager _parent;
     [SerializeField] private List<PoolSO> poolSOList = new List<PoolSO>();
 
     private Dictionary<string, ObjectPool> pools = new Dictionary<string, ObjectPool>();
 
-    public void Initialize(StageManager parent)
+    public void Initialize(GameManager parent)
     {
         _parent = parent;
         foreach (PoolSO pool in poolSOList)
