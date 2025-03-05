@@ -48,6 +48,13 @@ public class GameManager : MonoBehaviour
         {
             stageManager.StartStage();
         }
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            //spawn a zombie in lane 0
+            enemyManager.SpawnEnemyAtLane(NameHelper.ZombieBasic, 0);
+            
+        }
+
     }
     public MouseWorld GetMouseWorld()
     {

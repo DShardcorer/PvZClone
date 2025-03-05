@@ -62,6 +62,7 @@ public class StageManager : MonoBehaviour, IManager
         }
 
         Debug.Log("Stage data loaded successfully");
+        //print out the whole stage data
     }
 
     public void StartStage()
@@ -83,35 +84,46 @@ public class StageManager : MonoBehaviour, IManager
             yield return null;
         }
     }
-
-    private IEnumerator StageCoroutine(){
+    private IEnumerator StageCoroutine()
+    {
+        if (_stageData.waveDataList == null)
+        {
+            Debug.LogError("Stage data has no waveDataList");
+            yield break;
+        }
         while (_currentWaveIndex < _stageData.waveDataList.Count)
         {
-            if (_timer >= _stageData.waveDataList[_currentWaveIndex].waveStartTimestamp)
+            WaveData currentWave = _stageData.waveDataList[_currentWaveIndex];
+            if (_timer >= currentWave.waveStartTimestamp)
             {
                 Debug.Log("Spawning wave " + _currentWaveIndex);
-                yield return StartCoroutine(SpawnWave(_stageData.waveDataList[_currentWaveIndex]));
+                yield return StartCoroutine(SpawnWave(currentWave));
                 _currentWaveIndex++;
-            }
-
-        }
-    }
-
-    private IEnumerator SpawnWave(WaveData waveData)
-    {
-        float spawnTimerSinceWaveStarted = _timer - waveData.waveStartTimestamp;
-
-        for (int i = 0; i < waveData.spawnDataList.Count; i++)
-        {
-            if (spawnTimerSinceWaveStarted >= waveData.spawnDataList[i].spawnTimestamp)
-            {
-                _enemyManager.GetObject(waveData.spawnDataList[i].enemyType, _gridManager.GetLaneEndWorldPosition(waveData.spawnDataList[i].lane));
             }
             yield return null;
         }
     }
 
-    public void Dispose(){
+
+private IEnumerator SpawnWave(WaveData waveData)
+{
+    // For each spawn event in the current wave...
+    for (int i = 0; i < waveData.spawnDataList.Count; i++)
+    {
+        SpawnData spawnData = waveData.spawnDataList[i];
+        // Wait until the current time since the wave started reaches the spawn timestamp.
+        while ((_timer - waveData.waveStartTimestamp) < spawnData.spawnTimestamp)
+        {
+            yield return null; // Wait for the next frame.
+        }
+        Debug.Log("Spawning enemy " + spawnData.enemyType + " at lane " + spawnData.lane);
+        _enemyManager.SpawnEnemyAtLane(spawnData.enemyType, spawnData.lane);
+    }
+}
+
+
+    public void Dispose()
+    {
         StopCoroutine(_stageCoroutine);
         StopCoroutine(_timerCoroutine);
 

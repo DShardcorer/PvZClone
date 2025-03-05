@@ -1,8 +1,8 @@
 {
-    "waveDataList": [
+    "waveDataArray": [
       {
         "waveStartTimestamp": 0.0,
-        "spawnDataList": [
+        "spawnDataArray": [
           { "spawnTimestamp": 0.5, "lane": 0, "enemyType": "EnemyBasic" },
           { "spawnTimestamp": 1.2, "lane": 2, "enemyType": "EnemyCone" },
           { "spawnTimestamp": 2.0, "lane": 1, "enemyType": "EnemyBasic" }
@@ -10,7 +10,7 @@
       },
       {
         "waveStartTimestamp": 10.0,
-        "spawnDataList": [
+        "spawnDataArray": [
           { "spawnTimestamp": 0.2, "lane": 1, "enemyType": "EnemyBasic" },
           { "spawnTimestamp": 1.0, "lane": 3, "enemyType": "EnemyBasic" },
           { "spawnTimestamp": 1.8, "lane": 0, "enemyType": "EnemyCone" }

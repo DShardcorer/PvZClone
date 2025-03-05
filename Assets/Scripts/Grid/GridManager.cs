@@ -61,6 +61,7 @@ public class GridManager : MonoBehaviour, IManager
 
     public Vector2 GetLaneEndWorldPosition(int lane)
     {
+        Debug.Log("Lane end world position: " + gridSystem.GetLaneEndWorldPosition(lane));
         return gridSystem.GetLaneEndWorldPosition(lane);
     }
 }

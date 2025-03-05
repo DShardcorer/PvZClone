@@ -1,0 +1,44 @@
+{
+    "waveDataList": [
+        {
+            "waveStartTimestamp": 0.0,
+            "spawnDataList": [
+                {
+                    "spawnTimestamp": 0.5,
+                    "lane": 0,
+                    "enemyType": "ZombieBasic"
+                },
+                {
+                    "spawnTimestamp": 1.2000000476837159,
+                    "lane": 2,
+                    "enemyType": "ZombieCone"
+                },
+                {
+                    "spawnTimestamp": 2.0,
+                    "lane": 1,
+                    "enemyType": "ZombieBasic"
+                }
+            ]
+        },
+        {
+            "waveStartTimestamp": 10.0,
+            "spawnDataList": [
+                {
+                    "spawnTimestamp": 0.20000000298023225,
+                    "lane": 1,
+                    "enemyType": "ZombieBasic"
+                },
+                {
+                    "spawnTimestamp": 1.0,
+                    "lane": 3,
+                    "enemyType": "ZombieCone"
+                },
+                {
+                    "spawnTimestamp": 1.7999999523162842,
+                    "lane": 0,
+                    "enemyType": "ZombieBasic"
+                }
+            ]
+        }
+    ]
+}
